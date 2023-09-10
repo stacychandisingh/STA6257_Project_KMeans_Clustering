@@ -14,10 +14,65 @@ execute:
   message: false
 ---
 
-## Introduction
-Kernel regression is a non-parametric estimator that estimates the conditional expectation of two variables which is random. The goal of a kernel regression is to discover the non-linear relationship between two random variables. To discover the non-linear relationship, kernel estimator or kernel smoothing is the main method to estimate the curve for non-parametric
-statistics. In kernel estimator, weight function is known as kernel function [@efr2008]. Cite this paper [@bro2014principal]. The GEE [@wang2014].
+## Individual Research Summaries
 
+# Week 2:
+
+**Articles read this week and their summaries:**
+
+1.	Kodinariya, Trupti M., Makwana, Dr. Prashant R. (2013). Review on determining number of Cluster in K-Means Clustering. International Journal of Advance Research in Computer Science and Management Studies. Volume 1, Issue 6, 90-95. https://www.researchgate.net/profile/Trupti-Kodinariya/publication/313554124_Review_on_Determining_of_Cluster_in_K-means_Clustering/links/5789fda408ae59aa667931d2/Review-on-Determining-of-Cluster-in-K-means-Clustering.pdf
+
+**Summary 1:**
+
+K-Means Clustering is a type of unsupervised machine learning used for multivariate datasets. The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The centroid is generally the average of the position of all the points on a cluster. This article goes on to explore six different methods of obtaining the K number of clusters in K-Means Clustering which include: the elbow method, by rule of thumb, information criterion approach, and information theoretic approach, choosing k using the Silhouette, and cross-validation. 
+
+The article generally states that the elbow method uses a visual approach in determining the K where a graph is viewed to see where there is a pivot on the plot. The point which corresponds to the value on the x-axis that resembles the point of an elbow is used as the K value. The rule of thumb approach uses the number of data points as the K-value. The information criterion approach balances the complexity of a model and goodness of fit of data by employing Akaike’s information criterion (AIC), the consistent Akaike’s information criterion (CAIC), and the Bayesian inference criterion (BIC). The Information Theoretic Approach uses concepts from rate distortion theory where jump statistics is also introduced, and the maximum jump determines the correct number of clusters. K can also be chosen using the average Silhouette width of individual entities where the largest average silhouette width over different K, results in the most appropriate number of clusters. The article discusses its final method for determining the number of K using cross-validation where the data is split into two parts where one part is used for clustering and the other part is used for validation and a final K is determined from the appropriate algorithmic steps to determine the K in K-Means Clustering.
+
+**Summary 2:**
+
+2.	Zubair, M., Iqbal, M.A., Shil, A. et al. An Improved K-means Clustering Algorithm Towards an Efficient Data-Driven Modeling. Ann. Data. Sci. (2022). https://doi.org/10.1007/s40745-022-00428-2
+
+
+This article discusses the power of K-Means Clustering and generally states the usefulness and popularity of this unsupervised machine learning technique. The article describes the concern for this technique which is to determine the initial optimal centroids of clusters. It goes on to propose an approach to find the iteration number and reduce the number of iterations. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.
+
+The article discusses various approaches taken on by others to find the initial cluster centroids more efficiently and a few of these include: a centroids selection method based on radial and angular coordinates; finding initial centroids based on the dissimilarity tree; a new weighted average approach to finding the initial centroids by calculating the mean distance of every data point’s distance; dividing the sorted distances with k, the number of equal partitions; the nearest neighbor method; the distance of the neighborhood; proposal to save the distance to the nearest cluster of the previous iteration and used the distance to compare in the next iteration; and the farthest distributed centroids clustering (FDCC) algorithm. The article mentions various drawbacks and lack of further information surrounding these methods and goes on to propose a more effective way of finding the k-means’ initial centroids and reducing the number of iterations using principal component analysis (PCA) and percentile. The researchers of the article demonstrate this approach by using a real-world COVID-19 dataset. A general overview of the article’s more efficient proposal includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation.
+
+
+# Week 3:
+
+**Summary 1:**
+
+1.	Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
+
+
+Fuzzy k-means clustering is related to k-means clustering with the only difference being that a data point can overlap into more than one cluster whereas k-means indicates that a data point is contained in only one cluster. The word “fuzzy” connotates the overlap. This article discusses the important role technology plays in identifying and diagnosing melanoma skin cancer in patients. However, there are still challenges with the technology as image detection is used for the cancer identification and coloration issues can affect the ability to clearly distinguish between a melanoma mole and a non-melanoma affected area on the skin via skin lesion analysis. The article discusses the collective use of the region-based convolutional neural networks (RCNN) deep learning approach combined with fuzzy k-means clustering to develop an automated method in segmenting the early stages of skin melanoma. The clinical images are pre-processed to enhance the visuals of the image data followed by the application of faster RCNN. Fuzzy-k means is applied to the data with limitations in place to further define the melanoma affected skin. The authors tested their proposed method on three different datasets and found accuracies within the ninetieth percentile which did better than current melanoma image detection technologies.
+
+The article dives into various melanoma detection methods explored by other researchers including handcrafted features-based techniques, and segmentation-based techniques like adaptive thresholding and iterative selection thresholding. However, there were drawbacks to these studied approaches. Deep learning was shown to be a helpful approach in enhancing the technique. The researchers of the article in scope of this summary, try to overcome algorithm limitations like computational expense and model overfitting by using their method. An overview of the steps involved in their proposed method include: image pre-processing performed by enhanced image illumination to reduce noise, selecting the best features to use for the analysis using the deep learning faster-RCNN method, and then the segmentation of healthy skin lesions versus melanoma-affected skin lesion is done by fuzzy k-means analysis which accommodates overlapping datapoints and is more appropriate for this use-case rather than k-means clustering which hard codes a data point in only one cluster and does not cater for nuanced or overlapping differences for the particular use-case. 
+
+The researchers conclude their new skin cancer detection method involving deep learning and fuzzy k means can positively impact early skin cancer detection by increasing the accuracy of detection. They also reiterate their model performs better than skin cancer detection models currently on the market.
+
+**Summary 2:**
+
+2.	Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
+
+
+The focus of this article is on recorded seismic data in the Southern California plate boundary region, where velocity models are analyzed using k-means clustering to uncover any hidden features that can be found by analyzing clusters of the velocity model data. The study focuses on an alternative method to rate a velocity model using the K-means clustering method. This technique is applied to community velocity models (CVM) using Rayleigh wave phase velocity maps, and two frequently used datasets, CVM-H15.1 and CVM-S4.26, which are often used in tomography studies. 
+
+Theoretical predictions are made for a measured parameter, phase velocity of Rayleigh wave, and the k-means model is applied and compared with clustering results obtained for synthetic and observed data sets.
+
+A collection of 1-D velocity curves is grouped into a predetermined number of clusters. The researchers describe how they prepare the data to undergo k-means. They also note that the data analysis is sensitive to the K that is chosen and highlights the Elbow Method as a robust source for obtaining an appropriate K. The synthetic surface wave velocity dispersion curves for all 1-D velocity profiles of an input velocity model are calculated first, followed by clustering the synthetic and observed velocity dispersion curves independently into a certain number of groups through k-means clustering. The velocity model is rated by approximating the similarity between spatial patterns gleaned from the synthetic and observed dispersion data.
+
+The Elbow Method was used during the clustering of the observed phase velocity maps and the optimal k was found to be 4. The optimal k of 4 was used in the synthetic phase velocity maps for CVM-H15.1 and CVM-S4.26.
+
+The article discusses how the selection of the K value ranging from 3 to 5 affects the results of the velocity maps and highlights that K=5 provides the least stable results while the selection of K=4 is the optimal K as supported by the Elbow Method. 
+
+The researchers highlight that they developed a workflow to assess velocity models using the K-means clustering approach for the first time by comparing the synthetic phase velocity maps with the observed phase velocity maps. A Jaccard similarity coefficient which is a value used for determining the similarity and diversity of sample sets and this value was at a high 57.4% for CVM-S4.26, which was higher than the 18.6% obtained for CVM-H15.1. Per the K-Means analysis, this suggests that the clusters obtained from CVM-S4.26 match much better with that of the observed data than CVM-H15.1. 
+
+The model proposed in the study seems to be an initial first-order study aimed to complement more advanced model validation studies and seeks to provide information on improving the development of tomographic studies.
+
+
+
+**Please ignore information below this line. Website under construction.**
 
 ## Methods
 
