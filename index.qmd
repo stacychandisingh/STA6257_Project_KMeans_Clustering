@@ -1,6 +1,6 @@
 ---
-title: "Report Sample"
-author: "Student name"
+title: "K-Means Clustering"
+author: "Stacy Chandisingh"
 date: '`r Sys.Date()`'
 format:
   html:
