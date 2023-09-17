@@ -14,7 +14,7 @@ execute:
   message: false
 ---
 
-## Individual Research Summaries
+## Individual Research Summaries for K-Means Clustering
 
 # Week 2:
 
@@ -70,6 +70,29 @@ The researchers highlight that they developed a workflow to assess velocity mode
 
 The model proposed in the study seems to be an initial first-order study aimed to complement more advanced model validation studies and seeks to provide information on improving the development of tomographic studies.
 
+# Week 4:
+
+**Summary 1:**
+
+1.	Sadeghi, M., Dehkordi, M.N., Barekatain, B. et al. Improve customer churn prediction through the proposed PCA-PSO-K means algorithm in the communication industry. *J Supercomput* 79, 6871–6888 (2023). https://doi-org.ezproxy.lib.uwf.edu/10.1007/s11227-022-04907-4
+
+
+This article focuses on proposing an algorithm incorporating various algorithm techniques in their machine learning analysis of customer data. Specifically, their focus is customer churn prediction which is an aspect of Customer Relationship Management that determines which customer is likely to leave a service or cancel a subscription-based service. The paper proposes an algorithm that combines Principal Component Analysis (PCA), K-Means and Particle Swarm Optimization (PSO) to improve the accuracy of determining customer churn prediction. The analysis focuses on the challenges of customer retention in the competitive telecommunications industry and uses a dataset related to a fixed internet provider of Iran’s Isfahan Province. PCA is used to select the best features to use in the analysis, K-means helps in the classification process, and PSO enhances the K-Means by providing initial centroids. The algorithm is ultimately called PCA-PSO-K Means algorithm. 
+
+The general framework of the PCA-PSO-K Means algorithm includes computing the mean, centering the data, computing the covariance matrix, computing the eigenvalues and eigenvectors, finding the fraction of total variance, choosing the dimensionality, reducing the basis and dimensionality data, initializing particles and calculating the fitness value. The researchers use the Cross-Industry Standard Process for Data Mining (CRISP-DM) when predicting customer churn. When analyzing and testing the number of clusters which ranged between 2 to 9, the Davies Bouldin (DB) Index for each k was studied. The DB index measures how good the clusters are by assessing low within-cluster variation and high between-cluster separation. The values generated for the clusters between a PCA-PSO-K Means algorithm versus the general K-Means algorithm found that the PCA-PSO-K Means algorithm generated a lower DB index for all the clusters indicating better cluster performance compared to the general K-Means algorithm. The researchers show that the proposed PCA-PSO-K Means algorithm yielded an accuracy of 99.77%, a sensitivity of 75%, a specificity of 99.81% and a correlation coefficient of 0.443±0.271. However, the researchers attribute limitations of their analysis to data reliability and availability. 
+
+**Summary 2:**
+
+2.	Abdullah, Susilo, S., Ahmar, A. S., Rusli, R., & Hidayat, R. (2022). The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. *Quality & Quantity*, 56(3), 1283–1291. https://doi.org/10.1007/s11135-021-01176-w
+
+
+The goal of article was to cluster Indonesian provinces based on the risk of the COVID-19 pandemic. The provinces were grouped by confirmed, death, and recovered COVID-19 cases using data from the Indonesian COVID-19 Task Force. The researchers implemented the use of the K-Means Clustering algorithm where clustering generated three provincial groups whereby provinces are grouped together based on similarity of either confirmed, death, and recovered cases. This information sets out to inform government decisions in implementing strategies to reduce the spread of COVID-19.
+
+Using the K-Means method where similarities between groups are established based on distance vectors, the researchers seek out to pre-process their dataset to undergo the steps involved in a K-Means analysis. The researchers provide a step-by-step account of how they preprocessed their dataset using the R software program including the R packages used such as tidyverse, cluster, and factoextra. Missing values in the dataset were removed and variables were standardized to be made comparable. The Euclidean distances were calculated to get the clustering distances measurement and the distance data was visualized using the fviz_dist() function in R from the factoextra package. Descriptive statistics and a bar graph were also generated for the categories: confirmed, recovered, and death cases to determine and visualize the spread of the data.
+
+The researchers go on to determine the number of clusters using three top optimal clustering methods including the Elbow method, the Silhouette method, and the Gap statistic method. The researchers point out that the k value is found from the fviz_nbclust function of each method and describes the differences of how the k value is visualized from each method. The k value from the Elbow method is observed from the largest dip on the visualization graph, while it is automatically generated for the Silhouette and Gap statistic graphs. The researchers go on to describe how the number of clusters was used to calculate the k-means clustering value and provide code to visualize the k-means clustering result.
+
+The researchers concluded that two clusters were optimal for this analysis based on the three optimal clustering methods. The results of the study determined there are 3 clusters of provinces with the province of Jakarta being in its own group as a third cluster as Jakarta had more cases. Jakarta was excluded from the data clustering analysis. Cluster 1 consisted of 5 provinces and Cluster 2 consisted of 28 provinces. The provincial clustering data will help the government establish policies to overcome the spread of COVID-19.
 
 
 **Please ignore information below this line. Website under construction.**
