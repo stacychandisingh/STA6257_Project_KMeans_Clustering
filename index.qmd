@@ -1,6 +1,6 @@
 ---
 title: "K-Means Clustering"
-author: "Stacy Chandisingh"
+authors: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
 date: '`r Sys.Date()`'
 format:
   html:
@@ -13,6 +13,23 @@ execute:
   warning: false
   message: false
 ---
+## Introduction
+
+The researchers’ main focus for this project is to use an unsupervised machine learning technique called K-means clustering to glean insights from data. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.  The goal of the k-means clustering technique is to determine the initial optimal centroids of clusters (Zubair et al, 2022). The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The centroid is generally the average of the position of all the points on a cluster. 
+
+
+A few different methods of obtaining the K number of clusters in K-Means Clustering include: the elbow method, by rule of thumb, information criterion approach, and information theoretic approach, and choosing k using the Silhouette, and cross-validation. (Kodinariya et al, 2013). There are different statistical approaches that can be used in a k-means clustering algorithm such as Principal Component Analysis (PCA) amongst others, that help to improve the efficiency and accuracy of a k-means algorithm. One effective way of finding the k-means’ initial centroids and reducing the number of iterations is using principal component analysis (PCA) and percentile; this includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation (Zubair et al, 2022). Other methods involved in a k-means analysis include the hash algorithm or canopy algorithm to improve defining the center cluster (Ardavan et al, 2021).
+
+
+There are different aspects of the k-means clustering algorithm which are best suited for certain datasets and use cases. This can include the fuzzy k-means algorithm which is combined with other techniques that best prepare and analyze the data to get the most appropriate result for the particular use case. It was observed that k-means algorithms are typically tailored to suit the use case being studied. Fuzzy k-means caters for overlapping datasets in terms of similarity of the dataset features (k-means does not) and is used as part of the process in identifying and diagnosing melanoma skin cancer in patients. A skin cancer detection method involves deep learning and fuzzy k means which can positively impact early skin cancer detection by increasing the accuracy of detection (Nawaz et al, 2022). 
+
+
+The researchers understand the value of how the selection of the K value can affect the results of a study. The seismic data analyzed in Xiong et al, 2021 highlights that K=5 provides the least stable results while the selection of K=4 is the optimal K as supported by the Elbow Method. A way in which the value of the k-means value can be estimated is by using various tools like the Davies Bouldin (DB) Index where the value for each k was studied. The DB index measures how good the clusters are by assessing low within-cluster variation and high between-cluster separation. The DB index generated for the clusters between a more enhanced k-means algorithm, the Principal Component Analysis-Particle Swarm Optimization (PCA-PSO) K-Means algorithm versus the general K-Means algorithm found that the PCA-PSO-K Means algorithm generated a lower DB index for all the clusters indicating better cluster performance compared to the general K-Means algorithm (Sadeghi et al., 2023). The general framework of the PCA-PSO-K Means algorithm includes computing the mean, centering the data, computing the covariance matrix, computing the eigenvalues and eigenvectors, finding the fraction of total variance, choosing the dimensionality, reducing the basis and dimensionality data, initializing particles and calculating the fitness value (Sadeghi et al, 2023).  
+
+
+After reviewing multiple peer-reviewed articles, the general trend we observed was the importance of cleaning and preprocessing data to a suitable format for running through a k-means algorithm. There are various ways in how this process can be achieved like using preprocessing techniques available in the R software program such as tidyverse, cluster, and factoextra. Missing values in the dataset should be considered in how they should be treated where they could either be removed or replaced with a value. Variables can be standardized to be made comparable. The Euclidean distances are calculated to get the clustering distances measurement and the distance data can be visualized using the fviz_dist() function in R from the factoextra package. Descriptive statistics and bar graphs can also be generated to visualize the spread of the data (Abdullah et al, 2022). The researchers set out to explore the k-means clustering algorithm.
+
+
 
 ## Individual Research Summaries for K-Means Clustering
 
@@ -36,6 +53,23 @@ The article generally states that the elbow method uses a visual approach in det
 This article discusses the power of K-Means Clustering and generally states the usefulness and popularity of this unsupervised machine learning technique. The article describes the concern for this technique which is to determine the initial optimal centroids of clusters. It goes on to propose an approach to find the iteration number and reduce the number of iterations. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.
 
 The article discusses various approaches taken on by others to find the initial cluster centroids more efficiently and a few of these include: a centroids selection method based on radial and angular coordinates; finding initial centroids based on the dissimilarity tree; a new weighted average approach to finding the initial centroids by calculating the mean distance of every data point’s distance; dividing the sorted distances with k, the number of equal partitions; the nearest neighbor method; the distance of the neighborhood; proposal to save the distance to the nearest cluster of the previous iteration and used the distance to compare in the next iteration; and the farthest distributed centroids clustering (FDCC) algorithm. The article mentions various drawbacks and lack of further information surrounding these methods and goes on to propose a more effective way of finding the k-means’ initial centroids and reducing the number of iterations using principal component analysis (PCA) and percentile. The researchers of the article demonstrate this approach by using a real-world COVID-19 dataset. A general overview of the article’s more efficient proposal includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation.
+
+**Summary 3:**
+
+**The Systemic Review of K-Means Clustering Algorithm**
+
+This article explains versions of the current k-means clustering algorithm, current issues and limitations in the process, and what changes have been made to improve upon these issues. In explaining the algorithm, there is a step-by-step explanation of the traditional process. The issues and limitations mentioned are in defining the value of k, finding the initial center, reducing noise, and handling big datasets. In k-means clustering, you must define the number of clusters prior to the executing the algorithm, which is the biggest issue in dynamic datasets that change over time. The more effective you are at picking the cluster center, the less iterations you need in the process with a higher accuracy in your clusters. However, the more random the cluster center increases the randomness of the clusters, and this gets more difficult with larger and complex data structures used by major firms. Finally, noise is an issue in k-means clustering as it effects each iteration of cluster, with a heavy impact on the final cluster result. To fix the noise issue, it is assumed that determining the best possible number of clusters and finding the ideal center will reduce the noise effecting the algorithm.  There are new methods such as the hash algorithm or canopy algorithm to improve defining the center cluster. This article was a review of k-means clustering, and studies confirming the main issues surrounding the process. With our main concerns identified, we know which issues to focus on when conducting our research. 
+
+
+Ardavan Ashabi, Shamsul Bin Sahibuddin, and Mehdi Salkhordeh Haghighi. 2021. The Systematic Review of K-Means Clustering Algorithm. In Proceedings of the 2020 9th International Conference on Networks, Communication and Computing (ICNCC '20). Association for Computing Machinery, New York, NY, USA, 13–18. https://doi-org.ezproxy.lib.uwf.edu/10.1145/3447654.3447657
+
+**Summary 4:**
+
+**Adapting the right measures for K-Means Clustering**
+
+Previous performance validation measures are inconsistent and there is not a best available method for validating. This article studied 16 validation methods for K-means clustering, comparing the views, and explaining the defective results that may happen in the process. Some of the positive researched methods include data mining, information retrieval, machine learning, and statistics, as these can all be evaluated through the contingency matrix, which shows the frequency distribution between multiple variables, comparing the “purity” of the clusters. Some of the negative methods include the uniform effect, where the clusters are created of uniform distance from the centroid. The issues with this measure are the entropy measure (the measure of randomness), mutual information, and purity of the clusters, and are defective measures for validating k-means clusters. To improve these problems, the author normalizes the measures statistically, stating a term is valid if it has a certain value against the baseline distribution of the clusters. Finally, the author shows the math and visualization comparisons from normalized and unnormalized measures. The properties he compared were the sensitivity, the impact of the number of clusters, and summaries of the math properties of the datasets. Normalization is the necessary improvement when validating the k-means clustering algorithm. 
+
+Junjie Wu, Hui Xiong, and Jian Chen. 2009. Adapting the right measures for K-means clustering. In Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD '09). Association for Computing Machinery, New York, NY, USA, 877–886. https://doi-org.ezproxy.lib.uwf.edu/10.1145/1557019.1557115
 
 
 # Week 3:
@@ -70,6 +104,25 @@ The researchers highlight that they developed a workflow to assess velocity mode
 
 The model proposed in the study seems to be an initial first-order study aimed to complement more advanced model validation studies and seeks to provide information on improving the development of tomographic studies.
 
+**Summary 3:**
+
+**A New Method for initializing the K-Means clustering Algorithm**
+
+K-Means clustering is very popular and used in pattern recognition and machine learning by selecting initial cluster centers and determining the distance of a cluster from the centroid for validation. One of the problems this author attempts to fix is the random selection of the initial centroid for a better set of clusters and stronger partitioning. Some of the issues with k-means clustering are that the algorithm assumes the number of clusters are known beforehand, that the algorithm is sensitive to the initial cluster center, and that it converges finitely to a local minima. A new initialization algorithm is proposed with these issues in mind. In the new algorithm, we choose small subsamples of the data and reassign the centers to the sup samples. This avoids empty clusters that lead to bad solutions. The method was used on evenly distributed data for comparison against the random selection of the initial center and the results showed improvement in effectiveness when comparing the initial points to the true solutions. It is important to note that these results were from a Gaussian dataset, which was also small compared to data collected from major firms, and the scalability of this method was unknown. 
+
+X. Qin and S. Zheng, "A New Method for Initializing the K-Means Clustering Algorithm," 2009 Second International Symposium on Knowledge Acquisition and Modeling, Wuhan, China, 2009, pp. 41-44, doi: 10.1109/KAM.2009.20.
+
+**Summary 4**:
+
+**A Simple and Fast Algorithm for Global K-Means Clustering**
+
+K-means clustering is used for data mining, pattern recognition, decision support, machine learning, and image segmentation, however the normal algorithm heavy reacts to the initial chosen centroid and does not work well with large datasets. The global K-means algorithm adds one cluster center at a time through a global search procedure where N (with N being the size of the data set) is the number of executions in completed to find the ideal initial center. This article a new algorithm is presented based off the global K Means procedure and incorporates ideas from the K-medoids clustering. The new algorithm has greater performance, reduced computational times, and less influence of noise on its used test data. 
+
+The Global K-means algorithm does not rely on an initial center, and starting with one cluster, finds the best centroid compared to the center in the dataset. Next, the job is completed with 2 clusters and continues through the dataset until the best cluster is available as the answer to your problem. The author of the article trimmed the global algorithm down, ensured it does not depend on initial conditions and sets an optimal center at each stage, significantly reducing the computational load and making it fit for larger datasets. 
+
+J. Xie and S. Jiang, "A Simple and Fast Algorithm for Global K-means Clustering," 2010 Second International Workshop on Education Technology and Computer Science, Wuhan, China, 2010, pp. 36-40, doi: 10.1109/ETCS.2010.347.
+
+
 # Week 4:
 
 **Summary 1:**
@@ -94,6 +147,21 @@ The researchers go on to determine the number of clusters using three top optima
 
 The researchers concluded that two clusters were optimal for this analysis based on the three optimal clustering methods. The results of the study determined there are 3 clusters of provinces with the province of Jakarta being in its own group as a third cluster as Jakarta had more cases. Jakarta was excluded from the data clustering analysis. Cluster 1 consisted of 5 provinces and Cluster 2 consisted of 28 provinces. The provincial clustering data will help the government establish policies to overcome the spread of COVID-19.
 
+**Summary 3:**
+
+**An Efficient K-Means Clustering Algorithm: Analysis and Implementation**
+
+The algorithm in this article is known as a filtering algorithm, in which it is based on storing data points from a KD-tree, which is a space partitioning data structure. You start with computing the kd-tree and then determining the initial centers (there is not a best practice for finding the center mentioned in this article). For every node there is a set candidate centers, and we filter out those whose center is farthest from a given Z, your chosen initial center. The analysis of time saved shows how further separation between the clusters improves the run time of the algorithm. This was practiced on synthetic data with experiments involved color quantization, vector quantization, and image segmentation. 	The filtering algorithm outperformed competing clustering algorithms, although is noted that the data set likely needs to be clustering friendly. One of the issues is that information is not passed down, so there is not a stage of the process in which the clusters closest centers are comparable (which could further improve processing time). There is work to be done in further improvement, however the filtering algorithm accomplished its task when compared to separate clustering methods. 
+
+T. Kanungo, D. M. Mount, N. S. Netanyahu, C. D. Piatko, R. Silverman and A. Y. Wu, "An efficient k-means clustering algorithm: analysis and implementation," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, pp. 881-892, July 2002, doi: 10.1109/TPAMI.2002.1017616
+
+**Summary 4:*
+
+**A Fuzzy k-Modes Algorithm for Clustering Categorical Data**
+
+Fuzzy K-means algorithm means each data point is allowed to have functions in all the clusters rather than just one cluster. This article uses the fuzzy k means algorithm on categorical data by matching dissimilar features for categorical objects. This can show a transition between zones and build a practical story from the associated patterns. The authors of the article chose multiple data set to determine the performance of the algorithm. On a soybean dataset in which all columns held categorical data, three clustering algorithms were used to create four clusters and ran 100 times. The number of runs with correct classifications were higher for the fuzzy algorithm compared to a standard k means clustering algorithm, and the average computing time was much smaller for our chosen method. The next experiment measured efficiency as compared to a hard k-modes algorithm as it has been shown to work on large data sets, which is an issue with standard k means. An artificial dataset was used to test fuzzy k means by splitting into two clusters of 5000 objects. When measuring the dissimilarity using the categorical variables from the dataset it was found that hierarchal clustering was like fuzzy in terms of accuracy, however the fuzzy algorithm was much faster in completing it. So, when the dataset was large it is better to go with the fuzzy method.  
+
+Zhexue Huang and M. K. Ng, "A fuzzy k-modes algorithm for clustering categorical data," in IEEE Transactions on Fuzzy Systems, vol. 7, no. 4, pp. 446-452, Aug. 1999, doi: 10.1109/91.784206.
 
 **Please ignore information below this line. Website under construction.**
 
