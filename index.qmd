@@ -37,22 +37,21 @@ After reviewing multiple peer-reviewed articles, the general trend we observed w
 
 **Articles read this week and their summaries:**
 
-1.	Kodinariya, Trupti M., Makwana, Dr. Prashant R. (2013). Review on determining number of Cluster in K-Means Clustering. International Journal of Advance Research in Computer Science and Management Studies. Volume 1, Issue 6, 90-95. https://www.researchgate.net/profile/Trupti-Kodinariya/publication/313554124_Review_on_Determining_of_Cluster_in_K-means_Clustering/links/5789fda408ae59aa667931d2/Review-on-Determining-of-Cluster-in-K-means-Clustering.pdf
-
 **Summary 1:**
 
 K-Means Clustering is a type of unsupervised machine learning used for multivariate datasets. The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The centroid is generally the average of the position of all the points on a cluster. This article goes on to explore six different methods of obtaining the K number of clusters in K-Means Clustering which include: the elbow method, by rule of thumb, information criterion approach, and information theoretic approach, choosing k using the Silhouette, and cross-validation. 
 
 The article generally states that the elbow method uses a visual approach in determining the K where a graph is viewed to see where there is a pivot on the plot. The point which corresponds to the value on the x-axis that resembles the point of an elbow is used as the K value. The rule of thumb approach uses the number of data points as the K-value. The information criterion approach balances the complexity of a model and goodness of fit of data by employing Akaike’s information criterion (AIC), the consistent Akaike’s information criterion (CAIC), and the Bayesian inference criterion (BIC). The Information Theoretic Approach uses concepts from rate distortion theory where jump statistics is also introduced, and the maximum jump determines the correct number of clusters. K can also be chosen using the average Silhouette width of individual entities where the largest average silhouette width over different K, results in the most appropriate number of clusters. The article discusses its final method for determining the number of K using cross-validation where the data is split into two parts where one part is used for clustering and the other part is used for validation and a final K is determined from the appropriate algorithmic steps to determine the K in K-Means Clustering.
 
+Kodinariya, Trupti M., Makwana, Dr. Prashant R. (2013). Review on determining number of Cluster in K-Means Clustering. International Journal of Advance Research in Computer Science and Management Studies. Volume 1, Issue 6, 90-95. https://www.researchgate.net/profile/Trupti-Kodinariya/publication/313554124_Review_on_Determining_of_Cluster_in_K-means_Clustering/links/5789fda408ae59aa667931d2/Review-on-Determining-of-Cluster-in-K-means-Clustering.pdf
+
 **Summary 2:**
-
-2.	Zubair, M., Iqbal, M.A., Shil, A. et al. An Improved K-means Clustering Algorithm Towards an Efficient Data-Driven Modeling. Ann. Data. Sci. (2022). https://doi.org/10.1007/s40745-022-00428-2
-
 
 This article discusses the power of K-Means Clustering and generally states the usefulness and popularity of this unsupervised machine learning technique. The article describes the concern for this technique which is to determine the initial optimal centroids of clusters. It goes on to propose an approach to find the iteration number and reduce the number of iterations. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.
 
 The article discusses various approaches taken on by others to find the initial cluster centroids more efficiently and a few of these include: a centroids selection method based on radial and angular coordinates; finding initial centroids based on the dissimilarity tree; a new weighted average approach to finding the initial centroids by calculating the mean distance of every data point’s distance; dividing the sorted distances with k, the number of equal partitions; the nearest neighbor method; the distance of the neighborhood; proposal to save the distance to the nearest cluster of the previous iteration and used the distance to compare in the next iteration; and the farthest distributed centroids clustering (FDCC) algorithm. The article mentions various drawbacks and lack of further information surrounding these methods and goes on to propose a more effective way of finding the k-means’ initial centroids and reducing the number of iterations using principal component analysis (PCA) and percentile. The researchers of the article demonstrate this approach by using a real-world COVID-19 dataset. A general overview of the article’s more efficient proposal includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation.
+
+Zubair, M., Iqbal, M.A., Shil, A. et al. An Improved K-means Clustering Algorithm Towards an Efficient Data-Driven Modeling. Ann. Data. Sci. (2022). https://doi.org/10.1007/s40745-022-00428-2
 
 **Summary 3:**
 
@@ -76,18 +75,16 @@ Junjie Wu, Hui Xiong, and Jian Chen. 2009. Adapting the right measures for K-mea
 
 **Summary 1:**
 
-1.	Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
-
-
 Fuzzy k-means clustering is related to k-means clustering with the only difference being that a data point can overlap into more than one cluster whereas k-means indicates that a data point is contained in only one cluster. The word “fuzzy” connotates the overlap. This article discusses the important role technology plays in identifying and diagnosing melanoma skin cancer in patients. However, there are still challenges with the technology as image detection is used for the cancer identification and coloration issues can affect the ability to clearly distinguish between a melanoma mole and a non-melanoma affected area on the skin via skin lesion analysis. The article discusses the collective use of the region-based convolutional neural networks (RCNN) deep learning approach combined with fuzzy k-means clustering to develop an automated method in segmenting the early stages of skin melanoma. The clinical images are pre-processed to enhance the visuals of the image data followed by the application of faster RCNN. Fuzzy-k means is applied to the data with limitations in place to further define the melanoma affected skin. The authors tested their proposed method on three different datasets and found accuracies within the ninetieth percentile which did better than current melanoma image detection technologies.
 
 The article dives into various melanoma detection methods explored by other researchers including handcrafted features-based techniques, and segmentation-based techniques like adaptive thresholding and iterative selection thresholding. However, there were drawbacks to these studied approaches. Deep learning was shown to be a helpful approach in enhancing the technique. The researchers of the article in scope of this summary, try to overcome algorithm limitations like computational expense and model overfitting by using their method. An overview of the steps involved in their proposed method include: image pre-processing performed by enhanced image illumination to reduce noise, selecting the best features to use for the analysis using the deep learning faster-RCNN method, and then the segmentation of healthy skin lesions versus melanoma-affected skin lesion is done by fuzzy k-means analysis which accommodates overlapping datapoints and is more appropriate for this use-case rather than k-means clustering which hard codes a data point in only one cluster and does not cater for nuanced or overlapping differences for the particular use-case. 
 
 The researchers conclude their new skin cancer detection method involving deep learning and fuzzy k means can positively impact early skin cancer detection by increasing the accuracy of detection. They also reiterate their model performs better than skin cancer detection models currently on the market.
 
-**Summary 2:**
 
-2.	Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
+Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
+
+**Summary 2:**
 
 
 The focus of this article is on recorded seismic data in the Southern California plate boundary region, where velocity models are analyzed using k-means clustering to uncover any hidden features that can be found by analyzing clusters of the velocity model data. The study focuses on an alternative method to rate a velocity model using the K-means clustering method. This technique is applied to community velocity models (CVM) using Rayleigh wave phase velocity maps, and two frequently used datasets, CVM-H15.1 and CVM-S4.26, which are often used in tomography studies. 
@@ -103,6 +100,8 @@ The article discusses how the selection of the K value ranging from 3 to 5 affec
 The researchers highlight that they developed a workflow to assess velocity models using the K-means clustering approach for the first time by comparing the synthetic phase velocity maps with the observed phase velocity maps. A Jaccard similarity coefficient which is a value used for determining the similarity and diversity of sample sets and this value was at a high 57.4% for CVM-S4.26, which was higher than the 18.6% obtained for CVM-H15.1. Per the K-Means analysis, this suggests that the clusters obtained from CVM-S4.26 match much better with that of the observed data than CVM-H15.1. 
 
 The model proposed in the study seems to be an initial first-order study aimed to complement more advanced model validation studies and seeks to provide information on improving the development of tomographic studies.
+
+Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
 
 **Summary 3:**
 
@@ -127,17 +126,13 @@ J. Xie and S. Jiang, "A Simple and Fast Algorithm for Global K-means Clustering,
 
 **Summary 1:**
 
-1.	Sadeghi, M., Dehkordi, M.N., Barekatain, B. et al. Improve customer churn prediction through the proposed PCA-PSO-K means algorithm in the communication industry. *J Supercomput* 79, 6871–6888 (2023). https://doi-org.ezproxy.lib.uwf.edu/10.1007/s11227-022-04907-4
-
-
 This article focuses on proposing an algorithm incorporating various algorithm techniques in their machine learning analysis of customer data. Specifically, their focus is customer churn prediction which is an aspect of Customer Relationship Management that determines which customer is likely to leave a service or cancel a subscription-based service. The paper proposes an algorithm that combines Principal Component Analysis (PCA), K-Means and Particle Swarm Optimization (PSO) to improve the accuracy of determining customer churn prediction. The analysis focuses on the challenges of customer retention in the competitive telecommunications industry and uses a dataset related to a fixed internet provider of Iran’s Isfahan Province. PCA is used to select the best features to use in the analysis, K-means helps in the classification process, and PSO enhances the K-Means by providing initial centroids. The algorithm is ultimately called PCA-PSO-K Means algorithm. 
 
 The general framework of the PCA-PSO-K Means algorithm includes computing the mean, centering the data, computing the covariance matrix, computing the eigenvalues and eigenvectors, finding the fraction of total variance, choosing the dimensionality, reducing the basis and dimensionality data, initializing particles and calculating the fitness value. The researchers use the Cross-Industry Standard Process for Data Mining (CRISP-DM) when predicting customer churn. When analyzing and testing the number of clusters which ranged between 2 to 9, the Davies Bouldin (DB) Index for each k was studied. The DB index measures how good the clusters are by assessing low within-cluster variation and high between-cluster separation. The values generated for the clusters between a PCA-PSO-K Means algorithm versus the general K-Means algorithm found that the PCA-PSO-K Means algorithm generated a lower DB index for all the clusters indicating better cluster performance compared to the general K-Means algorithm. The researchers show that the proposed PCA-PSO-K Means algorithm yielded an accuracy of 99.77%, a sensitivity of 75%, a specificity of 99.81% and a correlation coefficient of 0.443±0.271. However, the researchers attribute limitations of their analysis to data reliability and availability. 
 
+Sadeghi, M., Dehkordi, M.N., Barekatain, B. et al. Improve customer churn prediction through the proposed PCA-PSO-K means algorithm in the communication industry. *J Supercomput* 79, 6871–6888 (2023). https://doi-org.ezproxy.lib.uwf.edu/10.1007/s11227-022-04907-4
+
 **Summary 2:**
-
-2.	Abdullah, Susilo, S., Ahmar, A. S., Rusli, R., & Hidayat, R. (2022). The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. *Quality & Quantity*, 56(3), 1283–1291. https://doi.org/10.1007/s11135-021-01176-w
-
 
 The goal of article was to cluster Indonesian provinces based on the risk of the COVID-19 pandemic. The provinces were grouped by confirmed, death, and recovered COVID-19 cases using data from the Indonesian COVID-19 Task Force. The researchers implemented the use of the K-Means Clustering algorithm where clustering generated three provincial groups whereby provinces are grouped together based on similarity of either confirmed, death, and recovered cases. This information sets out to inform government decisions in implementing strategies to reduce the spread of COVID-19.
 
@@ -146,6 +141,9 @@ Using the K-Means method where similarities between groups are established based
 The researchers go on to determine the number of clusters using three top optimal clustering methods including the Elbow method, the Silhouette method, and the Gap statistic method. The researchers point out that the k value is found from the fviz_nbclust function of each method and describes the differences of how the k value is visualized from each method. The k value from the Elbow method is observed from the largest dip on the visualization graph, while it is automatically generated for the Silhouette and Gap statistic graphs. The researchers go on to describe how the number of clusters was used to calculate the k-means clustering value and provide code to visualize the k-means clustering result.
 
 The researchers concluded that two clusters were optimal for this analysis based on the three optimal clustering methods. The results of the study determined there are 3 clusters of provinces with the province of Jakarta being in its own group as a third cluster as Jakarta had more cases. Jakarta was excluded from the data clustering analysis. Cluster 1 consisted of 5 provinces and Cluster 2 consisted of 28 provinces. The provincial clustering data will help the government establish policies to overcome the spread of COVID-19.
+
+
+Abdullah, Susilo, S., Ahmar, A. S., Rusli, R., & Hidayat, R. (2022). The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. *Quality & Quantity*, 56(3), 1283–1291. https://doi.org/10.1007/s11135-021-01176-w
 
 **Summary 3:**
 
