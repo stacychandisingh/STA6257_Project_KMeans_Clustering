@@ -160,6 +160,33 @@ Fuzzy K-means algorithm means each data point is allowed to have functions in al
 
 Zhexue Huang and M. K. Ng, "A fuzzy k-modes algorithm for clustering categorical data," in IEEE Transactions on Fuzzy Systems, vol. 7, no. 4, pp. 446-452, Aug. 1999, doi: 10.1109/91.784206.
 
+**References**
+
+1. Abdullah, Susilo, S., Ahmar, A. S., Rusli, R., & Hidayat, R. (2022). The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. Quality & Quantity, 56(3), 1283–1291. https://doi.org/10.1007/s11135-021-01176-w 
+
+2. Ardavan Ashabi, Shamsul Bin Sahibuddin, and Mehdi Salkhordeh Haghighi. 2021. The Systematic Review of K-Means Clustering Algorithm. In Proceedings of the 2020 9th International Conference on Networks, Communication and Computing (ICNCC '20). Association for Computing Machinery, New York, NY, USA, 13–18. https://doi-org.ezproxy.lib.uwf.edu/10.1145/3447654.3447657
+
+3. J. Xie and S. Jiang, "A Simple and Fast Algorithm for Global K-means Clustering," 2010 Second International Workshop on Education Technology and Computer Science, Wuhan, China, 2010, pp. 36-40, doi: 10.1109/ETCS.2010.347.
+
+4. Junjie Wu, Hui Xiong, and Jian Chen. 2009. Adapting the right measures for K-means clustering. In Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD '09). Association for Computing Machinery, New York, NY, USA, 877–886. https://doi-org.ezproxy.lib.uwf.edu/10.1145/1557019.1557115
+
+5. Kodinariya, Trupti M., Makwana, Dr. Prashant R. (2013). Review on determining number of Cluster in K-Means Clustering. International Journal of Advance Research in Computer Science and Management Studies. Volume 1, Issue 6, 90-95. https://www.researchgate.net/profile/Trupti-Kodinariya/publication/313554124_Review_on_Determining_of_Cluster_in_K-means_Clustering/links/5789fda408ae59aa667931d2/Review-on-Determining-of-Cluster-in-K-means-Clustering.pdf
+
+6. Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
+
+7. Sadeghi, M., Dehkordi, M.N., Barekatain, B. et al. Improve customer churn prediction through the proposed PCA-PSO-K means algorithm in the communication industry. J Supercomput 79, 6871–6888 (2023). https://doi-org.ezproxy.lib.uwf.edu/10.1007/s11227-022-04907-4
+
+8. T. Kanungo, D. M. Mount, N. S. Netanyahu, C. D. Piatko, R. Silverman and A. Y. Wu, "An efficient k-means clustering algorithm: analysis and implementation," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, pp. 881-892, July 2002, doi: 10.1109/TPAMI.2002.1017616
+
+9. X. Qin and S. Zheng, "A New Method for Initializing the K-Means Clustering Algorithm," 2009 Second International Symposium on Knowledge Acquisition and Modeling, Wuhan, China, 2009, pp. 41-44, doi: 10.1109/KAM.2009.20.
+
+10. Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
+
+11. Zhexue Huang and M. K. Ng, "A fuzzy k-modes algorithm for clustering categorical data," in IEEE Transactions on Fuzzy Systems, vol. 7, no. 4, pp. 446-452, Aug. 1999, doi: 10.1109/91.784206.
+
+12. Zubair, M., Iqbal, M.A., Shil, A. et al. An Improved K-means Clustering Algorithm Towards an Efficient Data-Driven Modeling. Ann. Data. Sci. (2022). https://doi.org/10.1007/s40745-022-00428-2
+
+
 **Please ignore information below this line. Website under construction.**
 
 ## Methods
