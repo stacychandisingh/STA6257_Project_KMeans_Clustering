@@ -15,7 +15,7 @@ execute:
 ---
 ## Introduction
 
-The researchers’ main focus for this project is to use an unsupervised machine learning technique called K-means clustering to glean insights from data. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.  The goal of the k-means clustering technique is to determine the initial optimal centroids of clusters (Zubair et al, 2022). The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The centroid is generally the average of the position of all the points on a cluster. 
+The researchers’ main focus for this project is to use an unsupervised machine learning technique called K-means clustering to glean insights from data. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.  The goal of the k-means clustering technique is to determine the initial optimal centroids of clusters (Zubair et al, 2022). The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The centroid is generally the average of the position of all the points on a cluster. We observed that an overarching theme of the K-Means analysis is focused on improved cost functions and  efficiency of the K-Means model clustering in datasets (Zalik, 2008).
 
 A few different methods of obtaining the K number of clusters in K-Means Clustering include: the elbow method, by rule of thumb, information criterion approach, and information theoretic approach, and choosing k using the Silhouette, and cross-validation. (Kodinariya et al, 2013). There are different statistical approaches that can be used in a k-means clustering algorithm such as Principal Component Analysis (PCA) amongst others, that help to improve the efficiency and accuracy of a k-means algorithm. One effective way of finding the k-means’ initial centroids and reducing the number of iterations is using principal component analysis (PCA) and percentile; this includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation (Zubair et al, 2022). Other methods involved in a k-means analysis include the hash algorithm or canopy algorithm to improve defining the center cluster (Ardavan et al, 2021).
 
@@ -69,6 +69,22 @@ Previous performance validation measures are inconsistent and there is not a bes
 
 Junjie Wu, Hui Xiong, and Jian Chen. 2009. Adapting the right measures for K-means clustering. In Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD '09). Association for Computing Machinery, New York, NY, USA, 877–886. https://doi-org.ezproxy.lib.uwf.edu/10.1145/1557019.1557115
 
+**Summary 5:**
+
+Two step clustering for data reduction combining DBSCAN and k-means clustering by B.J.J. Kremers, A. Ho , J. Citrin, K.L. van der Plassche
+
+The article I read was Two step clustering for data reduction combining DBSCAN and k-means clustering. The use of DBSCAN and k-means clustering algorithms in two – step process to see a density dependent reduction ratio. This article is important information because it allows the DBSCAN to help distinguish between different regions of data density. It shows the potential for data reduction without impacting the accuracy of the results. This algorithm was applied to a training neural network surrogate model of fusion plasma. The use of this algorithm in the dataset showed that it can be reduced by about 20, before there is a loss in accuracy of the neural network surrogate models. The resulting reduction helps analyze the data already there, which in end lowers the cost of repopulating the same area with the data. This can lead to expansion of the parameter space in the dataset. It can also help maintain the dataset being constant by reducing and detection as well. Some suggestions maybe to use the algorithm in enhancing the reduction factor itself to make it a bit more accurate when working with datasets.
+
+Kremers, Citrin, J., Ho, A., & Plassche, K. L. (2023). Two‐step clustering for data reduction combining DBSCAN and k‐means clustering. Contributions to Plasma Physics (1988), 63(5-6). https://doi.org/10.1002/ctpp.202200177
+
+**Summary 6:**
+
+k-means clustering with outlier removal by Guojun Gana,∗ , Michael Kwok-Po Ng b
+
+This week I read k-means clustering with outlier removal by Guojun Gana Michael Kwok-Po Ng. This article goes over the KMOR algorithm to perform data clustering and outlier detection. It focuses on parameters n0 and y to control the numbers of outliers. The importance of this article shows clustering and outlier detection, it also shows importance in improving efficiency as well. The tests that were conducted was on both synthetic and real datasets. The KMOR algorithm was effective in clustering data while it detected outliers. The KMOR in this study outperformed k-means, ODC, and NEO-k-means algorithm in detecting outliers whilst being very accurate. This was also used in large datasets which KMOR showed to be more effective. The results show that the kmor algorithm outperformed the others in accuracy and runtime. It highlights how applicable KMOR can be in other real world situations. Some limitations that could of been explored are alternative outlier control and detection. 
+
+Gan, & Ng, M. K.-P. (2017). k-means clustering with outlier removal. Pattern Recognition Letters, 90, 8–14. https://doi.org/10.1016/j.patrec.2017.03.008
+
 
 # Week 3:
 
@@ -120,6 +136,23 @@ The Global K-means algorithm does not rely on an initial center, and starting wi
 
 J. Xie and S. Jiang, "A Simple and Fast Algorithm for Global K-means Clustering," 2010 Second International Workshop on Education Technology and Computer Science, Wuhan, China, 2010, pp. 36-40, doi: 10.1109/ETCS.2010.347.
 
+**Summary 5:**
+
+An efficient k′-means clustering algorithm by Krista Rizman Žalik
+
+This article I read was An efficient k0 -means clustering algorithm by Krista Rizman Zˇalik. This article goes over k-means algorithm without the necessity to preassign the number of clusters. So in other words it is made for clustering data without the prior knowledge of clusters.This is achieved by minimizing the novel cost function which is used in k-means algorithm. There is a process where initial clustering and adjustment of seed points to minimize the cost function. This entails to find the correct number of clusters and locate them as well. The importance of this article is improved cost functions and the efficiency of the clustering in datasets. The results showed that it was efficient in the actual number of clusters in datasets. The results also show that it performs in high dimensional spaces, it randomly selects initial cluster centers from the dataset to avoid issues. The paper does show that there are a large range of k for each datset, The range of the parameter k in the algorithm. It is not much larger than k but when it is greater is when there is that large range. A limitation with this is if the clusters do overlap, the algorithm can regard it a cluster which leads to incorrect results.
+
+Žalik. (2008). An efficient k′-means clustering algorithm. Pattern Recognition Letters, 29(9), 1385–1391. https://doi.org/10.1016/j.patrec.2008.02.014
+
+**Summary 6:**
+
+Performance Appraisal and Automatic Scoring System for College Counselors Based on Kmeans Clustering by  Zhichao Wang and Qing Tian 
+
+The other article I read is Performance Appraisal and Automatic Scoring System for College Counselors Based on K-means Clustering by Zhichao Wang ,and Qing Tian.  This article is to establish a performance appraisal scoring system for college counselors using K-means Clustering. This is important to improve and figure out university goals, department goals that are trying to be attained by the university. This can help with student development, improvement, retaining of students as well. The model that was used was the GAPSO model which breaks down to genetic algorithm and particle swarm optimization. The steps that were used were initialization of the GA population, set the parameters for both algorithms. The next step was to calculate individual and population extreme within the PSO populations, then to select the solution with the GA through group optimization. Next, the solution is to be compared by both populations. Then, transfer the solution to see which population has the better solution. Then to make the adjustments and then crossover mutation operations, which then go through another round of iteration to find the solution within the spaces. The counselor goals are given through an expert outside group. The goals can range from career development, student development, student services etc. The goal is for this appraisal plan to guide the counselors in their work. They have started pilot of the appraisal system. The improvement can be how the system can improve the work of the counselors outside of those certain levels.
+
+
+Wang, & Tian, Q. (2022). Performance Appraisal and Automatic Scoring System for College Counselors Based on Kmeans Clustering. Mathematical Problems in Engineering, 2022, 1–12. https://doi.org/10.1155/2022/4167842
+
 
 # Week 4:
 
@@ -160,31 +193,57 @@ Fuzzy K-means algorithm means each data point is allowed to have functions in al
 
 Zhexue Huang and M. K. Ng, "A fuzzy k-modes algorithm for clustering categorical data," in IEEE Transactions on Fuzzy Systems, vol. 7, no. 4, pp. 446-452, Aug. 1999, doi: 10.1109/91.784206.
 
+**Summary 5:**
+
+Data‐Driven Velocity Model Evaluation Using K‐Means Clustering by Xiong, Neng Qiu, Hongrui Niu, Fenglin
+
+A peer reviewed article I read is Data‐Driven Velocity Model Evaluation Using K‐Means Clustering by Xiong, Neng Qiu, Hongrui Niu, Fenglin. This article goes in about evaluating velocity models using K-means clustering method to observed surface wave phase velocity dispersion maps. These models that were used CVM-H15.1 and CVM-S4.26, the idea was to compare clustering patterns synthetic and observed data to see the quality of the velocity models. This research is valuable to help with geological and geophysical area of study. It can help in understanding earthquake research. It also is important to understand seismic data when it comes to hazard assessment in those events. The way this is solved is by calculating the phase velocity of CVM-H15.1 and CVM-S4.26, which then the k-means clustering is applied to it. The Jaccard similarity coefficient is then used to see if the difference between the two. The results showed that 57.4 percent of the CVM-S4.26 averaged through the clusters while the CVM-H15.1 had 18.6 percent. Some suggestions for the study can be said is to use other types of seismic data to assess and compare other velocity models.
+
+Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
+
+**Summary 6:**
+
+Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering by Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T.
+
+One that was interesting to me was Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering in this article goes over melanoma skin cancer detection. The challenge is distinguishing between healthy skin moles, and which are cancerous. So, what the researchers used was a deep learning approach region based neural networks and fuzzy k-means clustering to detect it on its earliest stages. The methods used specifically the faster region-based convolutional neural networks known as (RCNN) as well as fuzzy k-means clustering. This method has a few steps to detect melanoma, and the challenges it comes with. The process starts with preprocessing which works with noise and illumination issues, and visual information. The next step is artifact removal which is eliminating hair or blood vessels. They use of enhanced image quality which then RCNN is used to extract features from the images. Next, the fuzzy k-means clustering is used to segment the melanoma areas. The result of the method was it outperformed state of the art methods, by the results shown by the three datasets as goes  95.4 %,(ISBI-2016) 93.1% (ISIC-2017,) 95.6%(PH2) of early detection rate for melanoma. The importance of these results show that the RCNN does well in its ability to generate efficient feature from input images. While the FKM clustering does well in segmenting the melanoma itself depending on shape and size of the areas. These two can help detect early melanoma which can save countless lives due to its accuracy and efficiency.
+
+Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
+
+
 **References**
 
-1. Abdullah, Susilo, S., Ahmar, A. S., Rusli, R., & Hidayat, R. (2022). The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. Quality & Quantity, 56(3), 1283–1291. https://doi.org/10.1007/s11135-021-01176-w 
+1.	Abdullah, Susilo, S., Ahmar, A. S., Rusli, R., & Hidayat, R. (2022). The application of K-means clustering for province clustering in Indonesia of the risk of the COVID-19 pandemic based on COVID-19 data. Quality & Quantity, 56(3), 1283–1291. https://doi.org/10.1007/s11135-021-01176-w
 
-2. Ardavan Ashabi, Shamsul Bin Sahibuddin, and Mehdi Salkhordeh Haghighi. 2021. The Systematic Review of K-Means Clustering Algorithm. In Proceedings of the 2020 9th International Conference on Networks, Communication and Computing (ICNCC '20). Association for Computing Machinery, New York, NY, USA, 13–18. https://doi-org.ezproxy.lib.uwf.edu/10.1145/3447654.3447657
+2.	Ardavan Ashabi, Shamsul Bin Sahibuddin, and Mehdi Salkhordeh Haghighi. 2021. The Systematic Review of K-Means Clustering Algorithm. In Proceedings of the 2020 9th International Conference on Networks, Communication and Computing (ICNCC '20). Association for Computing Machinery, New York, NY, USA, 13–18. https://doi-org.ezproxy.lib.uwf.edu/10.1145/3447654.3447657
 
-3. J. Xie and S. Jiang, "A Simple and Fast Algorithm for Global K-means Clustering," 2010 Second International Workshop on Education Technology and Computer Science, Wuhan, China, 2010, pp. 36-40, doi: 10.1109/ETCS.2010.347.
+3.	 Gan, & Ng, M. K.-P. (2017). k-means clustering with outlier removal. Pattern Recognition Letters, 90, 8–14. https://doi.org/10.1016/j.patrec.2017.03.008
 
-4. Junjie Wu, Hui Xiong, and Jian Chen. 2009. Adapting the right measures for K-means clustering. In Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD '09). Association for Computing Machinery, New York, NY, USA, 877–886. https://doi-org.ezproxy.lib.uwf.edu/10.1145/1557019.1557115
+4.	J. Xie and S. Jiang, "A Simple and Fast Algorithm for Global K-means Clustering," 2010 Second International Workshop on Education Technology and Computer Science, Wuhan, China, 2010, pp. 36-40, doi: 10.1109/ETCS.2010.347.
 
-5. Kodinariya, Trupti M., Makwana, Dr. Prashant R. (2013). Review on determining number of Cluster in K-Means Clustering. International Journal of Advance Research in Computer Science and Management Studies. Volume 1, Issue 6, 90-95. https://www.researchgate.net/profile/Trupti-Kodinariya/publication/313554124_Review_on_Determining_of_Cluster_in_K-means_Clustering/links/5789fda408ae59aa667931d2/Review-on-Determining-of-Cluster-in-K-means-Clustering.pdf
+5.	Junjie Wu, Hui Xiong, and Jian Chen. 2009. Adapting the right measures for K-means clustering. In Proceedings of the 15th ACM SIGKDD international conference on Knowledge discovery and data mining (KDD '09). Association for Computing Machinery, New York, NY, USA, 877–886. https://doi-org.ezproxy.lib.uwf.edu/10.1145/1557019.1557115
 
-6. Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
+6.	Kodinariya, Trupti M., Makwana, Dr. Prashant R. (2013). Review on determining number of Cluster in K-Means Clustering. International Journal of Advance Research in Computer Science and Management Studies. Volume 1, Issue 6, 90-95. https://www.researchgate.net/profile/Trupti-Kodinariya/publication/313554124_Review_on_Determining_of_Cluster_in_K-means_Clustering/links/5789fda408ae59aa667931d2/Review-on-Determining-of-Cluster-in-K-means-Clustering.pdf
 
-7. Sadeghi, M., Dehkordi, M.N., Barekatain, B. et al. Improve customer churn prediction through the proposed PCA-PSO-K means algorithm in the communication industry. J Supercomput 79, 6871–6888 (2023). https://doi-org.ezproxy.lib.uwf.edu/10.1007/s11227-022-04907-4
+7.	Kremers, Citrin, J., Ho, A., & Plassche, K. L. (2023). Two‐step clustering for data reduction combining DBSCAN and k‐means clustering. Contributions to Plasma Physics (1988), 63(5-6). https://doi.org/10.1002/ctpp.202200177
 
-8. T. Kanungo, D. M. Mount, N. S. Netanyahu, C. D. Piatko, R. Silverman and A. Y. Wu, "An efficient k-means clustering algorithm: analysis and implementation," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, pp. 881-892, July 2002, doi: 10.1109/TPAMI.2002.1017616
+8.	Nawaz, M., Mehmood, Z., Nazir, T., Naqvi, R. A., Rehman, A., Iqbal, M., & Saba, T. (2022). Skin cancer detection from dermoscopic images using deep learning and fuzzy k-means clustering. Microscopy Research and Technique, 85(1), 339–351. https://doi-org.ezproxy.lib.uwf.edu/10.1002/jemt.23908
 
-9. X. Qin and S. Zheng, "A New Method for Initializing the K-Means Clustering Algorithm," 2009 Second International Symposium on Knowledge Acquisition and Modeling, Wuhan, China, 2009, pp. 41-44, doi: 10.1109/KAM.2009.20.
+9.	Sadeghi, M., Dehkordi, M.N., Barekatain, B. et al. Improve customer churn prediction through the proposed PCA-PSO-K means algorithm in the communication industry. J Supercomput 79, 6871–6888 (2023). https://doi-org.ezproxy.lib.uwf.edu/10.1007/s11227-022-04907-4
 
-10. Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
+10.	T. Kanungo, D. M. Mount, N. S. Netanyahu, C. D. Piatko, R. Silverman and A. Y. Wu, "An efficient k-means clustering algorithm: analysis and implementation," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 24, no. 7, pp. 881-892, July 2002, doi: 10.1109/TPAMI.2002.1017616
 
-11. Zhexue Huang and M. K. Ng, "A fuzzy k-modes algorithm for clustering categorical data," in IEEE Transactions on Fuzzy Systems, vol. 7, no. 4, pp. 446-452, Aug. 1999, doi: 10.1109/91.784206.
+11.	 Wang, & Tian, Q. (2022). Performance Appraisal and Automatic Scoring System for College Counselors Based on Kmeans Clustering. Mathematical Problems in Engineering, 2022, 1–12. https://doi.org/10.1155/2022/4167842
 
-12. Zubair, M., Iqbal, M.A., Shil, A. et al. An Improved K-means Clustering Algorithm Towards an Efficient Data-Driven Modeling. Ann. Data. Sci. (2022). https://doi.org/10.1007/s40745-022-00428-2
+12.	X. Qin and S. Zheng, "A New Method for Initializing the K-Means Clustering Algorithm," 2009 Second International Symposium on Knowledge Acquisition and Modeling, Wuhan, China, 2009, pp. 41-44, doi: 10.1109/KAM.2009.20.
+
+13.	Xiong, N., Qiu, H., & Niu, F. (2021). Data-driven velocity model evaluation using K-means clustering. Geophysical Research Letters, 48, e2021GL096040. https://doi-org.ezproxy.lib.uwf.edu/10.1029/2021GL096040
+
+14.	Žalik. (2008). An efficient k′-means clustering algorithm. Pattern Recognition Letters, 29(9), 1385–1391. https://doi.org/10.1016/j.patrec.2008.02.014
+
+15.	Zhexue Huang and M. K. Ng, "A fuzzy k-modes algorithm for clustering categorical data," in IEEE Transactions on Fuzzy Systems, vol. 7, no. 4, pp. 446-452, Aug. 1999, doi: 10.1109/91.784206.
+
+16.	Zubair, M., Iqbal, M.A., Shil, A. et al. An Improved K-means Clustering Algorithm Towards an Efficient Data-Driven Modeling. Ann. Data. Sci. (2022). https://doi.org/10.1007/s40745-022-00428-2
+
 
 
 **Please ignore information below this line. Website under construction.**
