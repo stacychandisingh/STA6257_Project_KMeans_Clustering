@@ -17,7 +17,9 @@ execute:
 
 The researchers’ main focus for this project is to use an unsupervised machine learning technique called K-means clustering to glean insights from data. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.  The goal of the k-means clustering technique is to determine the initial optimal centroids of clusters [@Zubair2022]. The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The K-means algorithm does not rely on an initial center, but starting with one cluster, finds the best centroid compared to the center in the dataset [@Xie2010]. The centroid is generally the average of the position of all the points on a cluster. We observed that an overarching theme of the K-Means analysis is focused on improved cost functions and  efficiency of the K-Means model clustering in datasets [@alik2008]. 
 
-In this paper, we explore the usefulness of K-Means clustering algorithm to gain insights using data from the open source website, Kaggle. The data focuses on features from the musical streaming platform, Spotify.
+In this paper, we explore the usefulness of the K-Means clustering algorithm to gain insights using data from the open source website, Kaggle. The data focuses on attributes such as tempo and popularity surrounding a music track from the musical streaming platform, Spotify. We aim to determine the best number of clusters or groups for which these attributes belong. By identifying clusters, this will help us to understand the nature of a musical track and help us to offer a song recommendation based on the similar features that are clustered together.
+
+A general overview of a K-Means Algorithm is provided here:
 
 ![Figure 1: K-Means Algorithm Overview [@Zubair2022]](Zubair Fig 1)
 
@@ -33,10 +35,9 @@ The general framework of the PCA-PSO-K Means algorithm includes computing the me
 After reviewing multiple peer-reviewed articles, the general trend we observed was the importance of cleaning and preprocessing data to a suitable format for running through a k-means algorithm including k-means clustering with outlier removal [@Gan2017]. Normalization of data is also a necessary improvement when validating the k-means clustering algorithms [@Junjie2009]. There are various ways in how this process can be achieved like using preprocessing techniques available in the R software program such as tidyverse, cluster, and factoextra. Missing values in the dataset should be considered in how they should be treated where they could either be removed or replaced with a value. Variables can be standardized to be made comparable. The Euclidean distances are calculated to get the clustering distances measurement and the distance data can be visualized using the fviz_dist() function in R from the factoextra package. Descriptive statistics and bar graphs can also be generated to visualize the spread of the data [@Abdullah2021]. The researchers of this paper set out to explore the k-means clustering algorithm.
 
 
-**Please ignore information below this line. Website under construction.**
+**Please ignore the methods section. Spotify dataset is loaded under "Analysis and Results" section. Website under construction.**
 
 ## Methods
-
 
 The common non-parametric regression model is $Y_i = m(X_i) + \varepsilon_i$, where
 $Y_i$ can be defined as the sum of the regression function value $m(x)$ for $X_i$.
@@ -54,15 +55,38 @@ are positive numbers and small if $X_i$ is far from $x$.
 
 ## Analysis and Results
 ### Data and Vizualisation
-A study was conducted to determine how...
+Data inspection and visualization was conducted to determine the structure of our Spotify dataset.
 
 ```{r, warning=FALSE, echo=T, message=FALSE}
 # loading packages 
+library(readr)
 library(tidyverse)
 library(knitr)
 library(ggthemes)
 library(ggrepel)
 library(dslabs)
+library(dplyr)
+library(factoextra)
+```
+
+```{r}
+# Load Data
+spotify_df <- read_csv("spotify.csv")
+head(spotify_df)
+
+# Inspect data by showing structure of the dataset
+str(spotify_df)
+```
+```{r}
+# Check for missing data. 5 missing values found for three variables. 
+colSums(is.na(spotify_df))
+
+# Omit missing values
+spotify_df <- na.omit(spotify_df)
+
+# Verify missing data has been removed
+colSums(is.na(spotify_df))
+
 ```
 
 
