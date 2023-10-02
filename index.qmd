@@ -64,6 +64,8 @@ library(tidyverse)
 library(knitr)
 library(ggthemes)
 library(ggrepel)
+library(ggplot2)
+library(ggcorrplot)
 library(dslabs)
 library(dplyr)
 library(factoextra)
@@ -88,7 +90,6 @@ spotify_df <- na.omit(spotify_df)
 colSums(is.na(spotify_df))
 
 ```
-
 
 ```{r, warning=FALSE, echo=TRUE}
 # Load Data
