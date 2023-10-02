@@ -61,10 +61,15 @@ library(factoextra)
 ```{r}
 # Load Data
 spotify_df <- read_csv("spotify.csv")
-head(spotify_df)
+
+#convert tibble to data frame
+spotify_df <- as.data.frame(spotify_df)
 
 # Inspect data by showing structure of the dataset
 str(spotify_df)
+
+# Preview dataframe
+head(spotify_df)
 ```
 ```{r}
 # Check for missing data. 5 missing values found for three variables. 
