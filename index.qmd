@@ -53,9 +53,14 @@ library(ggthemes)
 library(ggrepel)
 library(ggplot2)
 library(ggcorrplot)
+library(corrplot)
 library(dslabs)
 library(dplyr)
 library(factoextra)
+library(GGally)
+library(inspectdf)
+library(ggiraphExtra)
+
 ```
 
 ```{r}
@@ -79,8 +84,33 @@ colSums(is.na(spotify_df))
 spotify_df <- na.omit(spotify_df)
 
 # Verify missing data has been removed
-colSums(is.na(spotify_df))
+# colSums(is.na(spotify_df))
+```
 
+
+```{r}
+# Adjust Data Type
+spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
+head(spotify_df)
+
+# Remove duplicates based on track_id columns
+spotify_new_df <- spotify_df[!duplicated(spotify_df$track_id),]
+
+# Filter only numeric variables
+spotify_new_df <- spotify_new_df %>% select(where(is.numeric))
+head(spotify_new_df)
+```
+
+
+```{r}
+# Show correlation matrix
+spotify_new_df %>% ggcorr(label = T)
+```
+
+
+```{r}
+# Show histogram of variables to determine
+spotify_new_df %>% inspect_num() %>% show_plot()
 ```
 
 ### Statistical Modeling
