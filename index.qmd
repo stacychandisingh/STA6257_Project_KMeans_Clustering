@@ -21,7 +21,7 @@ In this paper, we explore the usefulness of the K-Means clustering algorithm to 
 
 A general overview of a K-Means Algorithm is provided here:
 
-![Figure 1: K-Means Algorithm Overview [@Zubair2022]](Zubair Fig 1)
+![Figure 1: K-Means Algorithm Overview [@Zubair2022]](resources/Zubair Fig 1)
 
 A few different methods of obtaining the K number of clusters in K-Means Clustering include: the elbow method, by rule of thumb, information criterion approach, and information theoretic approach, and choosing k using the Silhouette, and cross-validation [@Kodinariya2013ReviewOD]. There are different statistical approaches that can be used in a k-means clustering algorithm such as Principal Component Analysis (PCA) amongst others, that help to improve the efficiency and accuracy of a k-means algorithm. One effective way of finding the k-means’ initial centroids and reducing the number of iterations is using principal component analysis (PCA) and percentile; this includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation [@Zubair2022]. Other methods involved in a k-means analysis include the hash algorithm or canopy algorithm to improve defining the center cluster [@Ashabi2020]. A filtering algorithm is also discussed in [@Kanungo2002].
 
@@ -65,7 +65,7 @@ library(ggiraphExtra)
 
 ```{r}
 # Load Data
-spotify_df <- read_csv("spotify.csv")
+spotify_df <- read_csv("resources/spotify.csv")
 
 #convert tibble to data frame
 spotify_df <- as.data.frame(spotify_df)
@@ -89,7 +89,7 @@ spotify_df <- na.omit(spotify_df)
 
 
 ```{r}
-# Adjust Data Type
+# Convert duration to minutes (from milliseconds)
 spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
 head(spotify_df)
 
@@ -109,7 +109,7 @@ spotify_new_df %>% ggcorr(label = T)
 
 
 ```{r}
-# Show histogram of variables to determine
+# Show histogram of variables to assess distribution and normality
 spotify_new_df %>% inspect_num() %>% show_plot()
 ```
 
