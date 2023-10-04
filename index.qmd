@@ -42,6 +42,8 @@ After reviewing multiple peer-reviewed articles, the general trend we observed w
 
 ## Analysis and Results
 ### Data and Vizualisation
+Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means/data?select=spotify.csv)
+
 Data inspection and visualization was conducted to determine the structure of our Spotify dataset.
 
 ```{r, warning=FALSE, echo=T, message=FALSE}
@@ -60,6 +62,7 @@ library(factoextra)
 library(GGally)
 library(inspectdf)
 library(ggiraphExtra)
+library(gtsummary)
 
 ```
 
@@ -78,20 +81,21 @@ head(spotify_df)
 ```
 ```{r}
 # Check for missing data. 5 missing values found for three variables. 
-colSums(is.na(spotify_df))
+#colSums(is.na(spotify_df))
 
 # Omit missing values
 spotify_df <- na.omit(spotify_df)
 
 # Verify missing data has been removed
 # colSums(is.na(spotify_df))
+
 ```
 
 
 ```{r}
 # Convert duration to minutes (from milliseconds)
 spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
-head(spotify_df)
+#head(spotify_df)
 
 # Remove duplicates based on track_id columns
 spotify_new_df <- spotify_df[!duplicated(spotify_df$track_id),]
@@ -99,6 +103,13 @@ spotify_new_df <- spotify_df[!duplicated(spotify_df$track_id),]
 # Filter only numeric variables
 spotify_new_df <- spotify_new_df %>% select(where(is.numeric))
 head(spotify_new_df)
+
+# summarize the data with our package
+table1 <- 
+  spotify_new_df %>%
+  tbl_summary(include = c(track_popularity, danceability, energy, key, loudness, mode))
+
+table1
 ```
 
 
@@ -110,6 +121,7 @@ spotify_new_df %>% ggcorr(label = T)
 
 ```{r}
 # Show histogram of variables to assess distribution and normality
+# Update histogram to show one color of bars and make plots bigger
 spotify_new_df %>% inspect_num() %>% show_plot()
 ```
 
