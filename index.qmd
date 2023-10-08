@@ -141,6 +141,8 @@ corrplot(cor(spotify_new_df))
 
 In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
+Next, we will explore the distribution of data for each variable using histograms:
+
 ```{r}
 # Show histogram of variables to assess distribution and normality
 #inspect_num(spotify_new_df,breaks=10) %>% show_plot(col_palette = 4)
