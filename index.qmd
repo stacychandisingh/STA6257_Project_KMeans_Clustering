@@ -7,7 +7,7 @@ format:
     code-fold: true
 course: STA 6257 - Advanced Statistical Modeling
 bibliography: references.bib # file contains bibtex for references
-link-citations: yes
+link-citations: true
 self-contained: true
 execute: 
   warning: false
@@ -65,7 +65,35 @@ library(gtsummary)
 ```{r}
 # Load Data
 spotify_df <- read_csv("resources/spotify.csv")
+```
+This dataset contains:
 
+Track_id: Spotify ID for each track. <br>
+track_name: Name of the Track. <br>
+track_artist:Artist Name. <br>
+track_popularity:The popularity of each track measured 1-100. <br>
+track_album_id:Key specific to each album. <br>
+track_album_name: Name of track. <br>
+track_alblum_release_date:Date Album was released <br>
+playlist_name:Style of music track can be found in.Contains genre and subgenre. <br>
+playlist_id:Key to the style category. <br>
+playlist_genre:Main category of each playlist. <br>
+playlist_subgenre:Secondary category of each playlist. <br>
+danceability:A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1. <br> 
+energy: Energy is a measure between perception and energy measured between 0 and 1. <br>
+key: The musical key the track is in. <br>
+loudness:How loud the track is in decibels (dB). <br>
+mode:Whether the scale is major or minor. <br>
+speechiness: The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1. <br>
+acousticness:How confident we are the track is acoustic on a scale of 0 to 1. <br>
+instrumentalness:Determines the lack of vocals in a track. <br>
+liveness:Listens for an audience in the track. This is determined on a scale of 0 to 1. <br>
+valence:The musical positiveness conveyed in a track. Measured on a scale of 0 to 1. <br>
+tempo: The tempo of a track measured in beats per minute. <br>
+duration_ms: The duration of the track in milliseconds. <br>
+
+
+```{r}
 #convert tibble to data frame
 spotify_df <- as.data.frame(spotify_df)
 
@@ -111,14 +139,16 @@ table1
 
 ```{r}
 # Show correlation matrix
-spotify_new_df %>% ggcorr(label = T)
+#spotify_new_df %>% ggcorr(label = T)
+corrplot(cor(spotify_new_df))
 ```
-
+In the correlation plot the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
 ```{r}
 # Show histogram of variables to assess distribution and normality
 # Update histogram to show one color of bars and make plots bigger
-spotify_new_df %>% inspect_num() %>% show_plot()
+#spotify_new_df %>% inspect_num() %>% show_plot()
+inspect_num(spotify_new_df,breaks=10) %>% show_plot()
 ```
 
 ### Statistical Modeling
