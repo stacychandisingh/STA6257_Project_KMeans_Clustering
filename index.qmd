@@ -7,7 +7,7 @@ format:
     code-fold: true
 course: STA 6257 - Advanced Statistical Modeling
 bibliography: references.bib # file contains bibtex for references
-link-citations: yes
+link-citations: true
 self-contained: true
 execute: 
   warning: false
@@ -66,12 +66,11 @@ library(gtsummary)
 ```{r}
 # Load Data
 spotify_df <- read_csv("resources/spotify.csv")
+```
 
+```{r}
 #convert tibble to data frame
 spotify_df <- as.data.frame(spotify_df)
-
-# Inspect data by showing structure of the dataset
-#str(spotify_df)
 
 ```
 This dataset contains:
@@ -140,6 +139,7 @@ table1
 # Show correlation matrix
 corrplot(cor(spotify_new_df))
 ```
+
 In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
 ```{r}
@@ -159,6 +159,7 @@ hist(spotify_new_df$tempo, main="Histogram of tempo", col="skyblue")
 hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="skyblue")
 
 ```
+
 
 ### Statistical Modeling
 
