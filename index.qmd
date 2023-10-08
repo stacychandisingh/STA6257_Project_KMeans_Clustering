@@ -143,6 +143,8 @@ In the correlation plot, the darker the blue the greater the correlation between
 
 ```{r}
 # Show histogram of variables to assess distribution and normality
+#inspect_num(spotify_new_df,breaks=10) %>% show_plot(col_palette = 4)
+
 hist(spotify_new_df$energy, main="Histogram of energy", col="skyblue")
 hist(spotify_new_df$track_popularity, main="Histogram of track popularity", col="skyblue")
 hist(spotify_new_df$danceability, main="Histogram of danceability", col="skyblue")
