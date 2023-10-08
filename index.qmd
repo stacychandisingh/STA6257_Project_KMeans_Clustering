@@ -74,30 +74,29 @@ spotify_df <- as.data.frame(spotify_df)
 
 ```
 This dataset contains:
-
-Track_id: Spotify ID for each track.
-track_name: Name of the Track.
-track_artist:Artist Name.
-track_popularity:The popularity of each track measured 1-100.
-track_album_id:Key specific to each album.
-track_album_name: Name of track.
-track_alblum_release_date:Date Album was released
-playlist_name:Style of music track can be found in.Contains genre and subgenre.
-playlist_id:Key to the style category.
-playlist_genre:Main category of each playlist.
-playlist_subgenre:Secondary category of each playlist.
-danceability:A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1.
-energy: Energy is a measure between perception and energy measured between 0 and 1.
-key: The musical key the track is in.
-loudness:How loud the track is in decibels (dB).
-mode:Whether the scale is major or minor.
-speechiness: The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1.
-acousticness:How confident we are the track is acoustic on a scale of 0 to 1.
-instrumentalness:Determines the lack of vocals in a track.
-liveness:Listens for an audience in the track. This is determined on a scale of 0 to 1.
-valence:The musical positiveness conveyed in a track. Measured on a scale of 0 to 1.
-tempo: The tempo of a track measured in beats per minute.
-duration_ms: The duration of the track in milliseconds.
+Track_id: Spotify ID for each track.<br>
+track_name: Name of the Track.<br>
+track_artist: Artist Name.<br>
+track_popularity: The popularity of each track measured 1-100.<br>
+track_album_id: Key specific to each album.<br>
+track_album_name: Name of track.<br>
+track_alblum_release_date: Date Album was released <br>
+playlist_name: Style of music track can be found in.Contains genre and subgenre.<br>
+playlist_id: Key to the style category.<br>
+playlist_genre: Main category of each playlist.<br>
+playlist_subgenre: Secondary category of each playlist.<br>
+danceability: A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1.<br>
+energy: Energy is a measure between perception and energy measured between 0 and 1.<br>
+key: The musical key the track is in.<br>
+loudness: How loud the track is in decibels (dB).<br>
+mode: Whether the scale is major or minor.<br>
+speechiness: The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1.<br>
+acousticness: How confident we are the track is acoustic on a scale of 0 to 1.<br>
+instrumentalness: Determines the lack of vocals in a track.<br>
+liveness: Listens for an audience in the track. This is determined on a scale of 0 to 1.<br>
+valence: The musical positiveness conveyed in a track. Measured on a scale of 0 to 1.<br>
+tempo: The tempo of a track measured in beats per minute.<br>
+duration_ms: The duration of the track in milliseconds.<br>
 
 
 ```{r}
