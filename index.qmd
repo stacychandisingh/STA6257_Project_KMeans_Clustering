@@ -162,6 +162,7 @@ hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="
 ```
 
 
+
 ### Statistical Modeling
 
 ### Conlusion
