@@ -162,6 +162,45 @@ hist(spotify_new_df$tempo, main="Histogram of tempo", col="skyblue")
 hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="skyblue")
 
 ```
+### Method
+
+
+
+The focus is to apply unsupervised machine learning technique K-Means clustering to the Spotify dataset. K-Means clustering is an algorithm for grouping data in K number of clusters focused on similarity, using the Euclidean distance metric [@Xie2010]. Initially, the centroids are determined. There are data points assigned to the clusters, and centroids are updated until convergence [@Zubair2022]. This algorithm is called the within-cluster sum of squares (WCSS), where:
+
+$$WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2$$
+
+- K is number of clusters. <br>
+- ni is number of data points in cluster i. <br>
+- C~i~ is centroid. <br>
+- X~ij~ is the *j*^th^ data point in cluster I. <br>
+
+The WCSS can be used to measure how the data within a cluster are grouped. The variables that are used from the dataset are then scaled. Then, after they are scaled the next steps are:
+ 
+Euclidean distance is calculated between each attribute, and the cluster center:
+$$ D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} $$
+Where: <br>
+
+- x is data point. <br>
+- ki is cluster center. <br>
+- n is number of attributes. <br>
+- x~i~ is the *i*^th^ attribute of the data point. <br>
+- K~ij~ is the *j*^th^ attribute of the centroid of cluster i. <br>
+ 
+Recalculate the new cluster centers by finding the average of the attributes and repeat it until convergence. There are different techniques like silhouette score used to identify optimal number of clusters [@Kodinariya2013ReviewOD].
+
+
+ 
+**Assumptions: <br>**
+ 
+- K-means assumes the clusters are symmetric, there can be asymmetrical clusters. <br>
+- The data is assumed to be independent. <br>
+- Properly scaled data is important for K-Means, it can lead to uneven clusters. <br>
+- There is a fixed number of clusters for K-Means. <br>
+ 
+The final step is to look at the quality of clusters. The performance of the K-Means algorithm using visualizations, and other metrics like WCSS [@Abdullah2021].
+ 
+
 
 
 
