@@ -1,5 +1,5 @@
 ---
-title: "K-Means Clustering"
+title: "Demonstration of a K-Means Clustering Algorithm on Spotify music features"
 authors: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
 date: '`r Sys.Date()`'
 format:
