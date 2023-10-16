@@ -2673,10 +2673,35 @@ vertical-align: -.125em;
 <p>The researchers understand the value of how the selection of the K value can affect the results of a study. The seismic data analyzed in <span class="citation" data-cites="Xiong2021">(<a href="#ref-Xiong2021" role="doc-biblioref">Xiong, Qiu, and Niu 2021</a>)</span> highlights that K=5 provides the least stable results while the selection of K=4 is the optimal K as supported by the Elbow Method.</p>
 <p>A way in which the value of the k-means value can be estimated is by using various tools like the Davies Bouldin (DB) Index where the value for each k was studied. The DB index measures how good the clusters are by assessing low within-cluster variation and high between-cluster separation. The DB index generated for the clusters between a more enhanced k-means algorithm, the Principal Component Analysis-Particle Swarm Optimization (PCA-PSO) K-Means algorithm versus the general K-Means algorithm found that the PCA-PSO-K Means algorithm generated a lower DB index for all the clusters indicating better cluster performance compared to the general K-Means algorithm <span class="citation" data-cites="Sadeghi2022">(<a href="#ref-Sadeghi2022" role="doc-biblioref">Sadeghi et al. 2022</a>)</span>. When adapting the right measures for K-Means Clustering, some other positive researched methods include data mining, information retrieval, machine learning, and statistics, as these can all be evaluated through the contingency matrix, which shows the frequency distribution between multiple variables, comparing the “purity” of the clusters <span class="citation" data-cites="Junjie2009">(<a href="#ref-Junjie2009" role="doc-biblioref">Junjie Wu and Chen 2009</a>)</span>. The general framework of the PCA-PSO-K Means algorithm includes computing the mean, centering the data, computing the covariance matrix, computing the eigenvalues and eigenvectors, finding the fraction of total variance, choosing the dimensionality, reducing the basis and dimensionality data, initializing particles and calculating the fitness value <span class="citation" data-cites="Sadeghi2022">(<a href="#ref-Sadeghi2022" role="doc-biblioref">Sadeghi et al. 2022</a>)</span>.</p>
 <p>After reviewing multiple peer-reviewed articles, the general trend we observed was the importance of cleaning and preprocessing data to a suitable format for running through a k-means algorithm including k-means clustering with outlier removal <span class="citation" data-cites="Gan2017">(<a href="#ref-Gan2017" role="doc-biblioref">Gan and Ng 2017</a>)</span>. Normalization of data is also a necessary improvement when validating the k-means clustering algorithms <span class="citation" data-cites="Junjie2009">(<a href="#ref-Junjie2009" role="doc-biblioref">Junjie Wu and Chen 2009</a>)</span>. There are various ways in how this process can be achieved like using preprocessing techniques available in the R software program such as tidyverse, cluster, and factoextra. Missing values in the dataset should be considered in how they should be treated where they could either be removed or replaced with a value. Variables can be standardized to be made comparable. The Euclidean distances are calculated to get the clustering distances measurement and the distance data can be visualized using the fviz_dist() function in R from the factoextra package. Descriptive statistics and bar graphs can also be generated to visualize the spread of the data <span class="citation" data-cites="Abdullah2021">(<a href="#ref-Abdullah2021" role="doc-biblioref">Abdullah et al. 2021</a>)</span>. The researchers of this paper set out to explore the k-means clustering algorithm.</p>
-<p><strong>Spotify dataset is loaded under “Analysis and Results” section. Website under construction.</strong></p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>The focus is to apply unsupervised machine learning technique K-Means clustering to the Spotify dataset. K-Means clustering is an algorithm for grouping data in K number of clusters focused on similarity, using the Euclidean distance metric <span class="citation" data-cites="Xie2010">(<a href="#ref-Xie2010" role="doc-biblioref">Xie and Jiang 2010</a>)</span>. Initially, the centroids are determined. There are data points assigned to the clusters, and centroids are updated until convergence <span class="citation" data-cites="Zubair2022">(<a href="#ref-Zubair2022" role="doc-biblioref">Zubair et al. 2022</a>)</span>. This algorithm is called the within-cluster sum of squares (WCSS), where:</p>
+<p><span class="math display">\[WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2\]</span></p>
+<ul>
+<li>K is number of clusters. <br></li>
+<li>ni is number of data points in cluster i. <br></li>
+<li>C<sub>i</sub> is centroid. <br></li>
+<li>X<sub>ij</sub> is the <em>j</em><sup>th</sup> data point in cluster I. <br></li>
+</ul>
+<p>The WCSS can be used to measure how the data within a cluster are grouped. The variables that are used from the dataset are then scaled. Then, after they are scaled the next steps are:</p>
+<p>Euclidean distance is calculated between each attribute, and the cluster center: <span class="math display">\[ D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} \]</span> Where: <br></p>
+<ul>
+<li>x is data point. <br></li>
+<li>ki is cluster center. <br></li>
+<li>n is number of attributes. <br></li>
+<li>x<sub>i</sub> is the <em>i</em><sup>th</sup> attribute of the data point. <br></li>
+<li>K<sub>ij</sub> is the <em>j</em><sup>th</sup> attribute of the centroid of cluster i. <br></li>
+</ul>
+<p>Recalculate the new cluster centers by finding the average of the attributes and repeat it until convergence. There are different techniques like silhouette score used to identify optimal number of clusters <span class="citation" data-cites="Kodinariya2013ReviewOD">(<a href="#ref-Kodinariya2013ReviewOD" role="doc-biblioref">Kodinariya and Makwana 2013</a>)</span>.</p>
+<p><strong>Assumptions: <br></strong></p>
+<ul>
+<li>K-means assumes the clusters are symmetric, there can be asymmetrical clusters. <br></li>
+<li>The data is assumed to be independent. <br></li>
+<li>Properly scaled data is important for K-Means, it can lead to uneven clusters. <br></li>
+<li>There is a fixed number of clusters for K-Means. <br></li>
+</ul>
+<p>The final step is to look at the quality of clusters. The performance of the K-Means algorithm using visualizations, and other metrics like WCSS <span class="citation" data-cites="Abdullah2021">(<a href="#ref-Abdullah2021" role="doc-biblioref">Abdullah et al. 2021</a>)</span>.</p>
 </section>
 <section id="analysis-and-results" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-and-results">Analysis and Results</h2>
@@ -2758,20 +2783,20 @@ vertical-align: -.125em;
 </details>
 <div class="cell-output-display">
 
-<div id="ngisiycaym" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ngisiycaym table {
+<div id="wmbjnsdhso" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wmbjnsdhso table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#ngisiycaym thead, #ngisiycaym tbody, #ngisiycaym tfoot, #ngisiycaym tr, #ngisiycaym td, #ngisiycaym th {
+#wmbjnsdhso thead, #wmbjnsdhso tbody, #wmbjnsdhso tfoot, #wmbjnsdhso tr, #wmbjnsdhso td, #wmbjnsdhso th {
 border-style: none;
 }
-#ngisiycaym p {
+#wmbjnsdhso p {
 margin: 0;
 padding: 0;
 }
-#ngisiycaym .gt_table {
+#wmbjnsdhso .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -2796,11 +2821,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#ngisiycaym .gt_caption {
+#wmbjnsdhso .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#ngisiycaym .gt_title {
+#wmbjnsdhso .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2811,7 +2836,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#ngisiycaym .gt_subtitle {
+#wmbjnsdhso .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2822,7 +2847,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#ngisiycaym .gt_heading {
+#wmbjnsdhso .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2833,12 +2858,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#ngisiycaym .gt_bottom_border {
+#wmbjnsdhso .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ngisiycaym .gt_col_headings {
+#wmbjnsdhso .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2852,7 +2877,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#ngisiycaym .gt_col_heading {
+#wmbjnsdhso .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2871,7 +2896,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#ngisiycaym .gt_column_spanner_outer {
+#wmbjnsdhso .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2882,13 +2907,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#ngisiycaym .gt_column_spanner_outer:first-child {
+#wmbjnsdhso .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#ngisiycaym .gt_column_spanner_outer:last-child {
+#wmbjnsdhso .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#ngisiycaym .gt_column_spanner {
+#wmbjnsdhso .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -2899,10 +2924,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#ngisiycaym .gt_spanner_row {
+#wmbjnsdhso .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#ngisiycaym .gt_group_heading {
+#wmbjnsdhso .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2927,7 +2952,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#ngisiycaym .gt_empty_group_heading {
+#wmbjnsdhso .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -2941,13 +2966,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#ngisiycaym .gt_from_md > :first-child {
+#wmbjnsdhso .gt_from_md > :first-child {
 margin-top: 0;
 }
-#ngisiycaym .gt_from_md > :last-child {
+#wmbjnsdhso .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#ngisiycaym .gt_row {
+#wmbjnsdhso .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2965,7 +2990,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#ngisiycaym .gt_stub {
+#wmbjnsdhso .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2977,7 +3002,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ngisiycaym .gt_stub_row_group {
+#wmbjnsdhso .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2990,13 +3015,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#ngisiycaym .gt_row_group_first td {
+#wmbjnsdhso .gt_row_group_first td {
 border-top-width: 2px;
 }
-#ngisiycaym .gt_row_group_first th {
+#wmbjnsdhso .gt_row_group_first th {
 border-top-width: 2px;
 }
-#ngisiycaym .gt_summary_row {
+#wmbjnsdhso .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3005,14 +3030,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ngisiycaym .gt_first_summary_row {
+#wmbjnsdhso .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#ngisiycaym .gt_first_summary_row.thick {
+#wmbjnsdhso .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#ngisiycaym .gt_last_summary_row {
+#wmbjnsdhso .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3021,7 +3046,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ngisiycaym .gt_grand_summary_row {
+#wmbjnsdhso .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -3030,7 +3055,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ngisiycaym .gt_first_grand_summary_row {
+#wmbjnsdhso .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3039,7 +3064,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#ngisiycaym .gt_last_grand_summary_row_top {
+#wmbjnsdhso .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -3048,10 +3073,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#ngisiycaym .gt_striped {
+#wmbjnsdhso .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#ngisiycaym .gt_table_body {
+#wmbjnsdhso .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3059,7 +3084,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#ngisiycaym .gt_footnotes {
+#wmbjnsdhso .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3072,7 +3097,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#ngisiycaym .gt_footnote {
+#wmbjnsdhso .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -3080,7 +3105,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ngisiycaym .gt_sourcenotes {
+#wmbjnsdhso .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3093,57 +3118,57 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#ngisiycaym .gt_sourcenote {
+#wmbjnsdhso .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#ngisiycaym .gt_left {
+#wmbjnsdhso .gt_left {
 text-align: left;
 }
-#ngisiycaym .gt_center {
+#wmbjnsdhso .gt_center {
 text-align: center;
 }
-#ngisiycaym .gt_right {
+#wmbjnsdhso .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#ngisiycaym .gt_font_normal {
+#wmbjnsdhso .gt_font_normal {
 font-weight: normal;
 }
-#ngisiycaym .gt_font_bold {
+#wmbjnsdhso .gt_font_bold {
 font-weight: bold;
 }
-#ngisiycaym .gt_font_italic {
+#wmbjnsdhso .gt_font_italic {
 font-style: italic;
 }
-#ngisiycaym .gt_super {
+#wmbjnsdhso .gt_super {
 font-size: 65%;
 }
-#ngisiycaym .gt_footnote_marks {
+#wmbjnsdhso .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#ngisiycaym .gt_asterisk {
+#wmbjnsdhso .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#ngisiycaym .gt_indent_1 {
+#wmbjnsdhso .gt_indent_1 {
 text-indent: 5px;
 }
-#ngisiycaym .gt_indent_2 {
+#wmbjnsdhso .gt_indent_2 {
 text-indent: 10px;
 }
-#ngisiycaym .gt_indent_3 {
+#wmbjnsdhso .gt_indent_3 {
 text-indent: 15px;
 }
-#ngisiycaym .gt_indent_4 {
+#wmbjnsdhso .gt_indent_4 {
 text-indent: 20px;
 }
-#ngisiycaym .gt_indent_5 {
+#wmbjnsdhso .gt_indent_5 {
 text-indent: 25px;
 }
 </style>
@@ -3301,35 +3326,6 @@ text-indent: 25px;
 <p><img src="data:image/png;base64,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" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="method" class="level3">
-<h3 class="anchored" data-anchor-id="method">Method</h3>
-<p>The focus is to apply unsupervised machine learning technique K-Means clustering to the Spotify dataset. K-Means clustering is an algorithm for grouping data in K number of clusters focused on similarity, using the Euclidean distance metric <span class="citation" data-cites="Xie2010">(<a href="#ref-Xie2010" role="doc-biblioref">Xie and Jiang 2010</a>)</span>. Initially, the centroids are determined. There are data points assigned to the clusters, and centroids are updated until convergence <span class="citation" data-cites="Zubair2022">(<a href="#ref-Zubair2022" role="doc-biblioref">Zubair et al. 2022</a>)</span>. This algorithm is called the within-cluster sum of squares (WCSS), where:</p>
-<p><span class="math display">\[WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2\]</span></p>
-<ul>
-<li>K is number of clusters. <br></li>
-<li>ni is number of data points in cluster i. <br></li>
-<li>C<sub>i</sub> is centroid. <br></li>
-<li>X<sub>ij</sub> is the <em>j</em><sup>th</sup> data point in cluster I. <br></li>
-</ul>
-<p>The WCSS can be used to measure how the data within a cluster are grouped. The variables that are used from the dataset are then scaled. Then, after they are scaled the next steps are:</p>
-<p>Euclidean distance is calculated between each attribute, and the cluster center: <span class="math display">\[ D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} \]</span> Where: <br></p>
-<ul>
-<li>x is data point. <br></li>
-<li>ki is cluster center. <br></li>
-<li>n is number of attributes. <br></li>
-<li>x<sub>i</sub> is the <em>i</em><sup>th</sup> attribute of the data point. <br></li>
-<li>K<sub>ij</sub> is the <em>j</em><sup>th</sup> attribute of the centroid of cluster i. <br></li>
-</ul>
-<p>Recalculate the new cluster centers by finding the average of the attributes and repeat it until convergence. There are different techniques like silhouette score used to identify optimal number of clusters <span class="citation" data-cites="Kodinariya2013ReviewOD">(<a href="#ref-Kodinariya2013ReviewOD" role="doc-biblioref">Kodinariya and Makwana 2013</a>)</span>.</p>
-<p><strong>Assumptions: <br></strong></p>
-<ul>
-<li>K-means assumes the clusters are symmetric, there can be asymmetrical clusters. <br></li>
-<li>The data is assumed to be independent. <br></li>
-<li>Properly scaled data is important for K-Means, it can lead to uneven clusters. <br></li>
-<li>There is a fixed number of clusters for K-Means. <br></li>
-</ul>
-<p>The final step is to look at the quality of clusters. The performance of the K-Means algorithm using visualizations, and other metrics like WCSS <span class="citation" data-cites="Abdullah2021">(<a href="#ref-Abdullah2021" role="doc-biblioref">Abdullah et al. 2021</a>)</span>.</p>
 </section>
 <section id="statistical-modeling" class="level3">
 <h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
