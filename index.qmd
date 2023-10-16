@@ -106,30 +106,31 @@ spotify_df <- read_csv("resources/spotify.csv")
 spotify_df <- as.data.frame(spotify_df)
 
 ```
-This dataset contains:
-Track_id: Spotify ID for each track.<br>
-track_name: Name of the Track.<br>
-track_artist: Artist Name.<br>
-track_popularity: The popularity of each track measured 1-100.<br>
-track_album_id: Key specific to each album.<br>
-track_album_name: Name of track.<br>
-track_alblum_release_date: Date Album was released <br>
-playlist_name: Style of music track can be found in.Contains genre and subgenre.<br>
-playlist_id: Key to the style category.<br>
-playlist_genre: Main category of each playlist.<br>
-playlist_subgenre: Secondary category of each playlist.<br>
-danceability: A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1.<br>
-energy: Energy is a measure between perception and energy measured between 0 and 1.<br>
-key: The musical key the track is in.<br>
-loudness: How loud the track is in decibels (dB).<br>
-mode: Whether the scale is major or minor.<br>
-speechiness: The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1.<br>
-acousticness: How confident we are the track is acoustic on a scale of 0 to 1.<br>
-instrumentalness: Determines the lack of vocals in a track.<br>
-liveness: Listens for an audience in the track. This is determined on a scale of 0 to 1.<br>
-valence: The musical positiveness conveyed in a track. Measured on a scale of 0 to 1.<br>
-tempo: The tempo of a track measured in beats per minute.<br>
-duration_ms: The duration of the track in milliseconds.<br>
+| Variables | Description |
+|--|-------------|
+'Track_id'| Spotify ID for each track.<br>
+'track_name'| Name of the Track.<br>
+'track_artist'| Artist Name.<br>
+'track_popularity'| The popularity of each track measured 1-100.<br>
+'track_album_id'| Key specific to each album.<br>
+'track_album_name'| Name of track.<br>
+'track_alblum_release_date'| Date Album was released <br>
+'playlist_name'| Style of music track can be found in.Contains genre and subgenre.<br>
+'playlist_id'| Key to the style category.<br>
+'playlist_genre'| Main category of each playlist.<br>
+'playlist_subgenre'| Secondary category of each playlist.<br>
+'danceability'| A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1.<br>
+'energy'| Energy is a measure between perception and energy measured between 0 and 1.<br>
+'key'| The musical key the track is in.<br>
+'loudness'| How loud the track is in decibels (dB).<br>
+'mode'| Whether the scale is major or minor.<br>
+'speechiness'| The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1.<br>
+'acousticness'| How confident we are the track is acoustic on a scale of 0 to 1.<br>
+'instrumentalness'| Determines the lack of vocals in a track.<br>
+'liveness'| Listens for an audience in the track. This is determined on a scale of 0 to 1.<br>
+'valence'| The musical positiveness conveyed in a track. Measured on a scale of 0 to 1.<br>
+'tempo'| The tempo of a track measured in beats per minute.<br>
+'duration_ms'| The duration of the track in milliseconds.<br>
 
 
 ```{r}
@@ -178,29 +179,63 @@ Next, we will explore the distribution of data for each variable using histogram
 
 ```{r}
 # Show histogram of variables to assess distribution and normality
-#inspect_num(spotify_new_df,breaks=10) %>% show_plot(col_palette = 4)
+spotify_new_df %>%
+  keep(is.numeric) %>% 
+  gather() %>% 
+  ggplot(aes(value), fill='skyblue') +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram()
 
-hist(spotify_new_df$energy, main="Histogram of energy", col="skyblue")
-hist(spotify_new_df$track_popularity, main="Histogram of track popularity", col="skyblue")
-hist(spotify_new_df$danceability, main="Histogram of danceability", col="skyblue")
-hist(spotify_new_df$key, main="Histogram of key", col="skyblue")
-hist(spotify_new_df$loudness, main="Histogram of loudness", col="skyblue")
-hist(spotify_new_df$mode, main="Histogram of mode", col="skyblue")
-hist(spotify_new_df$speechiness, main="Histogram of speechiness", col="skyblue")
-hist(spotify_new_df$acousticness, main="Histogram of acousticness", col="skyblue")
-hist(spotify_new_df$instrumentalness, main="Histogram of instrumentalness", col="skyblue")
-hist(spotify_new_df$liveness, main="Histogram of liveness", col="skyblue")
-hist(spotify_new_df$valence, main="Histogram of valence", col="skyblue")
-hist(spotify_new_df$tempo, main="Histogram of tempo", col="skyblue")
-hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="skyblue")
+#hist(spotify_new_df$energy, main="Histogram of energy", col="skyblue")
+#hist(spotify_new_df$track_popularity, main="Histogram of track popularity", col="skyblue")
+#hist(spotify_new_df$danceability, main="Histogram of danceability", col="skyblue")
+#hist(spotify_new_df$key, main="Histogram of key", col="skyblue")
+#hist(spotify_new_df$loudness, main="Histogram of loudness", col="skyblue")
+#hist(spotify_new_df$mode, main="Histogram of mode", col="skyblue")
+#hist(spotify_new_df$speechiness, main="Histogram of speechiness", col="skyblue")
+#hist(spotify_new_df$acousticness, main="Histogram of acousticness", col="skyblue")
+#hist(spotify_new_df$instrumentalness, main="Histogram of instrumentalness", col="skyblue")
+#hist(spotify_new_df$liveness, main="Histogram of liveness", col="skyblue")
+#hist(spotify_new_df$valence, main="Histogram of valence", col="skyblue")
+#hist(spotify_new_df$tempo, main="Histogram of tempo", col="skyblue")
+#hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="skyblue")
+
+```
+
+### Statistical Modeling
+```{r}
+#scale data as it cannot allocate vector at current dataset size
+  # scalling
+scale_spotify <- spotify_new_df %>%
+  select(where(is.numeric),
+         -track_popularity) %>% 
+  scale()
+
+RNGkind(sample.kind = "Rounding")
+set.seed(205)
+
+reduction <- sample(x = nrow(spotify_new_df), size = nrow(spotify_new_df)*0.015)
+spotify_keep <- spotify_new_df[reduction,]
+
+reduction2 <- sample(x = nrow(spotify_new_df), size = nrow(spotify_new_df)*0.2)
+spotify_red2 <- spotify_new_df[reduction2,]
+
+
+scaled <- spotify_red2 %>%
+  select(where(is.numeric),
+         -track_popularity) %>% 
+  scale()
+
+  #create the elbow curve
+
+
+fviz_nbclust(x = scaled,
+             FUNcluster = kmeans,
+             method = "wss")
 
 ```
 
 
-
-
-### Statistical Modeling
-
-### Conlusion
+### Conclusion
 
 ## References
