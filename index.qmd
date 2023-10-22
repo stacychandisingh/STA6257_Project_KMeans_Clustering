@@ -39,7 +39,7 @@ The focus is to apply unsupervised machine learning technique K-Means clustering
 $$WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2$$
 
 - K is number of clusters. <br>
-- ni is number of data points in cluster i. <br>
+- n~i~ is number of data points in cluster i. <br>
 - C~i~ is centroid. <br>
 - X~ij~ is the *j*^th^ data point in cluster I. <br>
 
@@ -68,6 +68,7 @@ Recalculate the new cluster centers by finding the average of the attributes and
  
 The final step is to look at the quality of clusters. The performance of the K-Means algorithm using visualizations, and other metrics like WCSS [@Abdullah2021].
 
+We will employ the use of the elbow method which uses a visual approach in determining the value of K. The elbow method uses a graph which is viewed to see where there is a pivot on the plot. The point which corresponds to the value on the x-axis that resembles the point of an elbow is used as the K value. In our Spotify analysis, we found the optimal K or groups of similar data, were best put in 3 clusters or groups.
 
 ## Analysis and Results
 ### Data and Vizualisation
@@ -205,7 +206,7 @@ spotify_new_df %>%
 ### Statistical Modeling
 ```{r}
 #scale data as it cannot allocate vector at current dataset size
-  # scalling
+  # scaling
 scale_spotify <- spotify_new_df %>%
   select(where(is.numeric),
          -track_popularity) %>% 
@@ -235,7 +236,12 @@ fviz_nbclust(x = scaled,
 
 ```
 
-
 ### Conclusion
+
+The goal of this study was to demonstrate a k-means algorithm using Spotify music data. Musical features, primarily numeric data, were cleaned and scaled accordingly and incorporated into an unsupervised, K-means clustering algorithm. The goal of this process was to determine the number of groups outputted from the K-means algorithm. This means that similar musical features were grouped together based on the closeness of their Euclidean distance. In our analysis, we used the WCSS method whereby the number of clusters was best determined by visually interpreting an elbow curve. 
+
+We found that similar musical features were grouped into three clusters. These clusters can be associated with different genres which represent different values of their particular features. This can mean an efficient way to identifying a musical track that a listener of Spotify music (restricted to this dataset) could be interested in listening to. 
+
+There are different approaches to establishing a K-means algorithm. We recommend further study of this analysis by applying other k-means clustering algorithms to test whether the results are similar or vastly different. 
 
 ## References
