@@ -24,7 +24,7 @@ execute:
   
 ---
 
-## Introduction
+## Introduction hello test
 
 The researchers’ main focus for this project is to use an unsupervised machine learning technique called K-means clustering to glean insights from data. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.  The goal of the k-means clustering technique is to determine the initial optimal centroids of clusters [@Zubair2022]. The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The K-means algorithm does not rely on an initial center, but starting with one cluster, finds the best centroid compared to the center in the dataset [@Xie2010]. The centroid is generally the average of the position of all the points on a cluster. We observed that an overarching theme of the K-Means analysis is focused on improved cost functions and  efficiency of the K-Means model clustering in datasets [@alik2008]. 
 
