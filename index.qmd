@@ -16,7 +16,7 @@ execute:
 
 [Website](https://stacychandisingh.github.io/STA6257_Project_KMeans_Clustering/)
 
-[Slides](~/University of West Florida/STA6257_Advanced_Statistical_Modeling/STA6257_Project_KMeans_Clustering)
+[Slides](https://stacychandisingh.github.io/STA6257_Project_KMeans_Clustering/CopyOfindex.html)
 
 ## Introduction
 
