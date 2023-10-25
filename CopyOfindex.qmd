@@ -24,28 +24,29 @@ execute:
   
 ---
 
-## Introduction hello test
+## Introduction: What is K-Means Clustering?
 
-The researchers’ main focus for this project is to use an unsupervised machine learning technique called K-means clustering to glean insights from data. Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.  The goal of the k-means clustering technique is to determine the initial optimal centroids of clusters [@Zubair2022]. The aim is to group similar data points together into ‘K’ number of clusters based on the similarity of the data or the measure of the distance to a centroid. The K-means algorithm does not rely on an initial center, but starting with one cluster, finds the best centroid compared to the center in the dataset [@Xie2010]. The centroid is generally the average of the position of all the points on a cluster. We observed that an overarching theme of the K-Means analysis is focused on improved cost functions and  efficiency of the K-Means model clustering in datasets [@alik2008]. 
+- An unsupervised machine learning technique
 
-In this paper, we explore the usefulness of the K-Means clustering algorithm to gain insights using data from the open source website, Kaggle. The data focuses on attributes such as tempo and popularity surrounding a music track from the musical streaming platform, Spotify. We aim to determine the best number of clusters or groups for which these attributes belong. By identifying clusters, this will help us to understand the nature of a musical track and help us to offer a song recommendation based on the similar features that are clustered together.
+- K-means is a fixed number (k) of clusters in a dataset
 
-A few different methods of obtaining the K number of clusters in K-Means Clustering include: the elbow method, by rule of thumb, information criterion approach, and information theoretic approach, and choosing k using the Silhouette, and cross-validation [@Kodinariya2013ReviewOD]. There are different statistical approaches that can be used in a k-means clustering algorithm such as Principal Component Analysis (PCA) amongst others, that help to improve the efficiency and accuracy of a k-means algorithm. One effective way of finding the k-means’ initial centroids and reducing the number of iterations is using principal component analysis (PCA) and percentile; this includes having the data undergo PCA, apply a percentile, split the dataset and find the mean of each attribute, determine the centroids, and finally, cluster generation [@Zubair2022]. Other methods involved in a k-means analysis include the hash algorithm or canopy algorithm to improve defining the center cluster [@Ashabi2020]. A filtering algorithm is also discussed in [@Kanungo2002].
+- Used to draw conclusions about a dataset based on groups of similar variables
 
-There are different aspects of the k-means clustering algorithm which are best suited for certain datasets and use cases. This can include the fuzzy k-means algorithm which is combined with other techniques that best prepare and analyze the data to get the most appropriate result for the particular use case. It can show a transition between zones and build a practical story from the associated patterns [@ZhexueHuang1999]. It was observed that k-means algorithms are typically tailored to suit the use case being studied. Fuzzy k-means caters for overlapping datasets in terms of similarity of the dataset features (k-means does not) and is used as part of the process in identifying and diagnosing melanoma skin cancer in patients. A skin cancer detection method involves deep learning and fuzzy k means which can positively impact early skin cancer detection by increasing the accuracy of detection [@Nawaz2021]. Deep learning was also involved in the two step clustering technique for data reduction, combining a Density Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm and a k-means clustering [@Kremers2023]. Bilateral filtering was also used to perform edge-preserving and denoising preprocessing on the target variable, and the mixed model was used to improve the K-means algorithm; this algorithm was used to establish a performance appraisal scoring system for college counselors [@Wang2022]. K-Means clustering is also very popular and used in pattern recognition and machine learning by selecting initial cluster centers and determining the distance of a cluster from the centroid for validation [@Qin2009].
+- Different ways to determine the 'k'
 
-The researchers understand the value of how the selection of the K value can affect the results of a study. The seismic data analyzed in [@Xiong2021] highlights that K=5 provides the least stable results while the selection of K=4 is the optimal K as supported by the Elbow Method. 
+- Used a Spotify dataset focused on attributes (examples: tempo and popularity) surrounding a music track to group similar features by clustering them together
 
-A way in which the value of the k-means value can be estimated is by using various tools like the Davies Bouldin (DB) Index where the value for each k was studied. The DB index measures how good the clusters are by assessing low within-cluster variation and high between-cluster separation. The DB index generated for the clusters between a more enhanced k-means algorithm, the Principal Component Analysis-Particle Swarm Optimization (PCA-PSO) K-Means algorithm versus the general K-Means algorithm found that the PCA-PSO-K Means algorithm generated a lower DB index for all the clusters indicating better cluster performance compared to the general K-Means algorithm [@Sadeghi2022]. When adapting the right measures for K-Means Clustering, some other positive researched methods include data mining, information retrieval, machine learning, and statistics, as these can all be evaluated through the contingency matrix, which shows the frequency distribution between multiple variables, comparing the “purity” of the clusters [@Junjie2009].
-The general framework of the PCA-PSO-K Means algorithm includes computing the mean, centering the data, computing the covariance matrix, computing the eigenvalues and eigenvectors, finding the fraction of total variance, choosing the dimensionality, reducing the basis and dimensionality data, initializing particles and calculating the fitness value [@Sadeghi2022]. 
+## Methods: diving into the K-Means algorithm (add wcss and euclidean distance as two separate tabs under methods)
 
-After reviewing multiple peer-reviewed articles, the general trend we observed was the importance of cleaning and preprocessing data to a suitable format for running through a k-means algorithm including k-means clustering with outlier removal [@Gan2017]. Normalization of data is also a necessary improvement when validating the k-means clustering algorithms [@Junjie2009]. There are various ways in how this process can be achieved like using preprocessing techniques available in the R software program such as tidyverse, cluster, and factoextra. Missing values in the dataset should be considered in how they should be treated where they could either be removed or replaced with a value. Variables can be standardized to be made comparable. The Euclidean distances are calculated to get the clustering distances measurement and the distance data can be visualized using the fviz_dist() function in R from the factoextra package. Descriptive statistics and bar graphs can also be generated to visualize the spread of the data [@Abdullah2021]. The researchers of this paper set out to explore the k-means clustering algorithm.
+- Descriptive statistics/histograms/correlation matrix to visualize the spread of the data.
 
+- Preprocess and scale data for ease of comparability.
 
-## Methods
+- Libraries used: tidyverse, cluster, and factoextra. 
 
+- The Euclidean distances are calculated to get the clustering distances measurement
 
-The focus is to apply unsupervised machine learning technique K-Means clustering to the Spotify dataset. K-Means clustering is an algorithm for grouping data in K number of clusters focused on similarity, using the Euclidean distance metric [@Xie2010]. Initially, the centroids are determined. There are data points assigned to the clusters, and centroids are updated until convergence [@Zubair2022]. This algorithm is called the within-cluster sum of squares (WCSS), where:
+- The distance data is visualized using the fviz_dist() function in R from the factoextra package. 
 
 $$WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2$$
 
@@ -58,201 +59,64 @@ The WCSS can be used to measure how the data within a cluster are grouped. The v
  
 Euclidean distance is calculated between each attribute, and the cluster center:
 $$ D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} $$
+
 Where: <br>
 
 - x is data point. <br>
-- ki is cluster center. <br>
+- k~i~ is cluster center. <br>
 - n is number of attributes. <br>
 - x~i~ is the *i*^th^ attribute of the data point. <br>
 - K~ij~ is the *j*^th^ attribute of the centroid of cluster i. <br>
  
-Recalculate the new cluster centers by finding the average of the attributes and repeat it until convergence. There are different techniques like silhouette score used to identify optimal number of clusters [@Kodinariya2013ReviewOD].
 
-
- 
-**Assumptions: <br>**
+## Assumptions
  
 - K-means assumes the clusters are symmetric, there can be asymmetrical clusters. <br>
 - The data is assumed to be independent. <br>
 - Properly scaled data is important for K-Means, it can lead to uneven clusters. <br>
 - There is a fixed number of clusters for K-Means. <br>
  
-The final step is to look at the quality of clusters. The performance of the K-Means algorithm using visualizations, and other metrics like WCSS [@Abdullah2021].
 
-We will employ the use of the elbow method which uses a visual approach in determining the value of K. The elbow method uses a graph which is viewed to see where there is a pivot on the plot. The point which corresponds to the value on the x-axis that resembles the point of an elbow is used as the K value. In our Spotify analysis, we found the optimal K or groups of similar data, were best put in 3 clusters or groups.
-
-## Analysis and Results
-### Data and Vizualisation
+## Analysis and Results: Data and Vizualisation
 Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means/data?select=spotify.csv)
 
-Data inspection and visualization was conducted to determine the structure of our Spotify dataset.
 
-```{r, warning=FALSE, echo=T, message=FALSE}
-# loading packages 
-library(readr)
-library(reshape2)
-library(tidyverse)
-library(knitr)
-library(ggthemes)
-library(ggrepel)
-library(ggplot2)
-library(ggcorrplot)
-library(corrplot)
-library(dslabs)
-library(dplyr)
-library(factoextra)
-library(GGally)
-library(inspectdf)
-library(ggiraphExtra)
-library(gtsummary)
-
-```
-
-```{r}
-# Load Data
-spotify_df <- read_csv("resources/spotify.csv")
-```
-
-```{r}
-#convert tibble to data frame
-spotify_df <- as.data.frame(spotify_df)
-
-```
-| Variables | Description |
-|--|-------------|
-'Track_id'| Spotify ID for each track.<br>
-'track_name'| Name of the Track.<br>
-'track_artist'| Artist Name.<br>
-'track_popularity'| The popularity of each track measured 1-100.<br>
-'track_album_id'| Key specific to each album.<br>
-'track_album_name'| Name of track.<br>
-'track_alblum_release_date'| Date Album was released <br>
-'playlist_name'| Style of music track can be found in.Contains genre and subgenre.<br>
-'playlist_id'| Key to the style category.<br>
-'playlist_genre'| Main category of each playlist.<br>
-'playlist_subgenre'| Secondary category of each playlist.<br>
-'danceability'| A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1.<br>
-'energy'| Energy is a measure between perception and energy measured between 0 and 1.<br>
-'key'| The musical key the track is in.<br>
-'loudness'| How loud the track is in decibels (dB).<br>
-'mode'| Whether the scale is major or minor.<br>
-'speechiness'| The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1.<br>
-'acousticness'| How confident we are the track is acoustic on a scale of 0 to 1.<br>
-'instrumentalness'| Determines the lack of vocals in a track.<br>
-'liveness'| Listens for an audience in the track. This is determined on a scale of 0 to 1.<br>
-'valence'| The musical positiveness conveyed in a track. Measured on a scale of 0 to 1.<br>
-'tempo'| The tempo of a track measured in beats per minute.<br>
-'duration_ms'| The duration of the track in milliseconds.<br>
-
-
-```{r}
-# Check for missing data. 5 missing values found for three variables. 
-#colSums(is.na(spotify_df))
-
-# Omit missing values
-spotify_df <- na.omit(spotify_df)
-
-# Verify missing data has been removed
-# colSums(is.na(spotify_df))
-
-```
-
-
-```{r}
-# Convert duration to minutes (from milliseconds)
-spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
-#head(spotify_df)
-
-# Remove duplicates based on track_id columns
-spotify_new_df <- spotify_df[!duplicated(spotify_df$track_id),]
-
-# Filter only numeric variables
-spotify_new_df <- spotify_new_df %>% select(where(is.numeric))
-#head(spotify_new_df)
-
-# summarize the data with our package
-table1 <- 
-  spotify_new_df %>%
-  tbl_summary(include = c(track_popularity,danceability,energy,key,loudness,mode,speechiness,
-                          acousticness,instrumentalness,liveness,valence,tempo,duration_min))
-
-table1
-```
-
-
-```{r}
-# Show correlation matrix
-corrplot(cor(spotify_new_df))
-```
+## Correlation Matrix (add image here of corr plot)
 
 In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
-Next, we will explore the distribution of data for each variable using histograms:
+## Histogram (add histogram)
 
-```{r}
-# Show histogram of variables to assess distribution and normality
-spotify_new_df %>%
-  keep(is.numeric) %>% 
-  gather() %>% 
-  ggplot(aes(value), fill='skyblue') +
-    facet_wrap(~ key, scales = "free") +
-    geom_histogram()
-
-#hist(spotify_new_df$energy, main="Histogram of energy", col="skyblue")
-#hist(spotify_new_df$track_popularity, main="Histogram of track popularity", col="skyblue")
-#hist(spotify_new_df$danceability, main="Histogram of danceability", col="skyblue")
-#hist(spotify_new_df$key, main="Histogram of key", col="skyblue")
-#hist(spotify_new_df$loudness, main="Histogram of loudness", col="skyblue")
-#hist(spotify_new_df$mode, main="Histogram of mode", col="skyblue")
-#hist(spotify_new_df$speechiness, main="Histogram of speechiness", col="skyblue")
-#hist(spotify_new_df$acousticness, main="Histogram of acousticness", col="skyblue")
-#hist(spotify_new_df$instrumentalness, main="Histogram of instrumentalness", col="skyblue")
-#hist(spotify_new_df$liveness, main="Histogram of liveness", col="skyblue")
-#hist(spotify_new_df$valence, main="Histogram of valence", col="skyblue")
-#hist(spotify_new_df$tempo, main="Histogram of tempo", col="skyblue")
-#hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="skyblue")
-
-```
-
-### Statistical Modeling
-```{r}
-#scale data as it cannot allocate vector at current dataset size
-  # scaling
-scale_spotify <- spotify_new_df %>%
-  select(where(is.numeric),
-         -track_popularity) %>% 
-  scale()
-
-RNGkind(sample.kind = "Rounding")
-set.seed(205)
-
-reduction <- sample(x = nrow(spotify_new_df), size = nrow(spotify_new_df)*0.015)
-spotify_keep <- spotify_new_df[reduction,]
-
-reduction2 <- sample(x = nrow(spotify_new_df), size = nrow(spotify_new_df)*0.2)
-spotify_red2 <- spotify_new_df[reduction2,]
+Show histogram of variables to assess distribution and normality
 
 
-scaled <- spotify_red2 %>%
-  select(where(is.numeric),
-         -track_popularity) %>% 
-  scale()
 
-  #create the elbow curve
+## Show the Elbow Curve
+
+Add elbow graph curve here
+
+## Visualizing the data clusters
+
+Show the clustered groups here (graph)
+
+## What did we find?
+
+Three clusters of similar music data
+
+Provide an example of how we searched for a song within a particular cluster?
+
+## Conclusions
+
+- K-Means provides a simple yet insightful way to glean data insights.
+
+- Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.
+
+- Three cluster groups were found.
+
+- We can offer song recommendations based on this analysis
+
+- We recommend using other K-Means clustering methods to verify whether results are similar.
 
 
-fviz_nbclust(x = scaled,
-             FUNcluster = kmeans,
-             method = "wss")
-
-```
-
-### Conclusion
-
-The goal of this study was to demonstrate a k-means algorithm using Spotify music data. Musical features, primarily numeric data, were cleaned and scaled accordingly and incorporated into an unsupervised, K-means clustering algorithm. The goal of this process was to determine the number of groups outputted from the K-means algorithm. This means that similar musical features were grouped together based on the closeness of their Euclidean distance. In our analysis, we used the WCSS method whereby the number of clusters was best determined by visually interpreting an elbow curve. 
-
-We found that similar musical features were grouped into three clusters. These clusters can be associated with different genres which represent different values of their particular features. This can mean an efficient way to identifying a musical track that a listener of Spotify music (restricted to this dataset) could be interested in listening to. 
-
-There are different approaches to establishing a K-means algorithm. We recommend further study of this analysis by applying other k-means clustering algorithms to test whether the results are similar or vastly different. 
 
 ## References
