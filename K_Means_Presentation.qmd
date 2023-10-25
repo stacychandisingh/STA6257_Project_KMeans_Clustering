@@ -1,0 +1,88 @@
+---
+title: "Demonstration of a K-Means Clustering Algorithm on Spotify music features"
+author: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
+format:
+  revealjs: 
+    theme: dark
+editor: visual
+---
+
+## Introduction: What is K-Means Clustering?
+
+-   An unsupervised machine learning technique
+
+-   K-means is a fixed number (k) of clusters in a dataset
+
+-   Used to draw conclusions about a dataset based on groups of similar variables
+
+-   Different ways to determine the 'k'
+
+-   Used a Spotify dataset focused on attributes (examples: tempo and popularity) surrounding a music track to group similar features by clustering them together
+
+## **Methods: diving into the K-Means algorithm**
+
+-   Descriptive statistics/histograms/correlation matrix to visualize the spread of the data.
+
+-   Preprocess and scale data for ease of comparability.
+
+-   Libraries used: tidyverse, cluster, and factoextra. 
+
+-   The Euclidean distances are calculated to get the clustering distances measurement
+
+-   The distance data is visualized using the fviz_dist() function in R from the factoextra package. 
+
+## **Equations -** Within-cluster sum of squares (WCSS)**(make this a tab under methods)**
+
+The within-cluster sum of squares (WCSS) can be used to measure how the data within a cluster are grouped.
+
+```{=tex}
+\begin{gather*} WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2 \end{gather*}
+```
+\- K is number of clusters.
+
+\- n\~i\~ is number of data points in cluster i.
+
+\- C\~i\~ is centroid.
+
+\- X\~ij\~ is the \*j\*\^th\^ data point in cluster I.
+
+## **Equations - Euclidean Distance (make this another tab under methods)**
+
+The variables that are used from the dataset are then scaled. Then, after they are scaled the next steps are: Euclidean distance is calculated between each attribute, and the cluster center:
+
+```{=tex}
+\begin{gather*} D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} \end{gather*}
+```
+
+## Analysis and Results: Visualizations
+
+Add data visualizations here. Histograms/correlation matrix
+
+## Visualize the dataset
+
+Add histograms and correlation matrix here
+
+## Show the Elbow Curve
+
+Add elbow graph curve here
+
+## Visualizing the data clusters
+
+Show the clustered groups here (graph)
+
+## What did we find?
+
+-   Three clusters of similar music data
+-   Provide an example of how we searched for a song within a particular cluster?
+
+## Conclusions
+
+-   K-Means provides a simple yet insightful way to glean data insights.
+
+-   Unsupervised machine learning finds hidden data structures from an unlabeled dataset and its aim is to find the similarities within the data groups.
+
+-   Three cluster groups were found.
+
+-   We can offer song recommendations based on this analysis
+
+-   We recommend using other K-Means clustering methods to verify whether results are similar.
