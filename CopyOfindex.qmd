@@ -1,10 +1,19 @@
 ---
 title: "Demonstration of a K-Means Clustering Algorithm on Spotify music features"
-authors: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
+author: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
 date: '`r Sys.Date()`'
 format:
-  html:
-    code-fold: true 
+  revealjs:
+    theme: dark
+    scrollable: true
+    smaller: true
+    margin: 0.01
+    auto-stretch: false
+    width: 1200
+    max-scale: 1.5
+    view-distance: 30
+    mobile-view-distance: 30
+editor: visual
 course: STA 6257 - Advanced Statistical Modeling
 bibliography: references.bib # file contains bibtex for references
 link-citations: true
@@ -12,11 +21,8 @@ self-contained: true
 execute: 
   warning: false
   message: false
+  
 ---
-
-[Website](https://stacychandisingh.github.io/STA6257_Project_KMeans_Clustering/)
-
-[Slides](~/University of West Florida/STA6257_Advanced_Statistical_Modeling/STA6257_Project_KMeans_Clustering)
 
 ## Introduction
 

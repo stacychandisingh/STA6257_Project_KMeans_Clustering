@@ -4,6 +4,14 @@ author: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
 format:
   revealjs: 
     theme: dark
+    scrollable: true
+    smaller: true
+    margin: 0.01
+    auto-stretch: false
+    width: 1200
+    max-scale: 1.5
+    view-distance: 30
+    mobile-view-distance: 30
 editor: visual
 ---
 
@@ -53,7 +61,6 @@ The variables that are used from the dataset are then scaled. Then, after they a
 ```{=tex}
 \begin{gather*} D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} \end{gather*}
 ```
-
 ## Analysis and Results: Visualizations
 
 Add data visualizations here. Histograms/correlation matrix
@@ -73,6 +80,7 @@ Show the clustered groups here (graph)
 ## What did we find?
 
 -   Three clusters of similar music data
+
 -   Provide an example of how we searched for a song within a particular cluster?
 
 ## Conclusions
