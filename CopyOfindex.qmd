@@ -28,13 +28,23 @@ execute:
 
 - An unsupervised machine learning technique
 
+. . .
+
 - K-means is a fixed number (k) of clusters in a dataset
+
+. . .
 
 - Used to draw conclusions about a dataset based on groups of similar variables
 
+. . .
+
 - Different ways to determine the 'k'
 
+. . .
+
 - Used a Spotify dataset focused on attributes (examples: tempo and popularity) surrounding a music track to group similar features by clustering them together
+
+. . .
 
 ## Methods: diving into the K-Means algorithm (add wcss and euclidean distance as two separate tabs under methods)
 
@@ -80,24 +90,38 @@ Where: <br>
 ## Analysis and Results: Data and Vizualisation
 Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means/data?select=spotify.csv)
 
+::: panel-tabset
 
-## Correlation Matrix (add image here of corr plot)
+## Correlation Matrix
+
+![corrplot](resources/corrplot.png){width=750}
 
 In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
-## Histogram (add histogram)
+:::
 
-Show histogram of variables to assess distribution and normality
+::: panel-tabset
+## Histogram
 
+- Histogram of variables to assess distribution and normality
 
+![histogram](resources/histogram.png){width=750}
+:::
 
-## Show the Elbow Curve
+## The Elbow Curve
 
-Add elbow graph curve here
+- The point at which the line starts to curve is where we get our "k" clusters. Hence the name "Elbow Curve"
+
+![elbow](resources/elbow.png){width=750}
+
+:::
 
 ## Visualizing the data clusters
 
-Show the clustered groups here (graph)
+- Three distinct clusters are shown here.
+
+![clusters](resources/clusters.png){width=750}
+:::
 
 ## What did we find?
 
