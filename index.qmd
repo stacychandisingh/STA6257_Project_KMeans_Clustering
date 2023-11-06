@@ -99,6 +99,7 @@ library(GGally)
 library(inspectdf)
 library(ggiraphExtra)
 library(gtsummary)
+library(qmrparser)
 
 ```
 
@@ -107,11 +108,6 @@ library(gtsummary)
 spotify_df <- read_csv("resources/spotify.csv")
 ```
 
-```{r}
-#convert tibble to data frame
-spotify_df <- as.data.frame(spotify_df)
-
-```
 | Variables | Description |
 |--|-------------|
 'Track_id'| Spotify ID for each track.<br>
@@ -138,108 +134,270 @@ spotify_df <- as.data.frame(spotify_df)
 'tempo'| The tempo of a track measured in beats per minute.<br>
 'duration_ms'| The duration of the track in milliseconds.<br>
 
-
 ```{r}
+#convert tibble to data frame
+spotify_df <- as.data.frame(spotify_df)
+
+spotify_df <- spotify_df %>% select(-track_id, -playlist_id, -track_album_id) %>% 
+  mutate_at(c("playlist_genre", "playlist_subgenre", "mode", "key"), as.factor)
+
 # Check for missing data. 5 missing values found for three variables. 
-#colSums(is.na(spotify_df))
+colSums(is.na(spotify_df))
 
 # Omit missing values
 spotify_df <- na.omit(spotify_df)
 
 # Verify missing data has been removed
-# colSums(is.na(spotify_df))
-
+ colSums(is.na(spotify_df))
 ```
 
 
 ```{r}
 # Convert duration to minutes (from milliseconds)
 spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
-#head(spotify_df)
+head(spotify_df)
 
 # Remove duplicates based on track_id columns
-spotify_new_df <- spotify_df[!duplicated(spotify_df$track_id),]
-
-# Filter only numeric variables
-spotify_new_df <- spotify_new_df %>% select(where(is.numeric))
+#spotify_new_df <- spotify_df[!duplicated(spotify_df$track_id),]
 #head(spotify_new_df)
 
-# summarize the data with our package
+# Filter only numeric variables for table summary
+spotify_num<- spotify_df %>% select(where(is.numeric))
+head(spotify_num)
+
+
+# summarize the numeric data with our package
 table1 <- 
-  spotify_new_df %>%
-  tbl_summary(include = c(track_popularity,danceability,energy,key,loudness,mode,speechiness,
-                          acousticness,instrumentalness,liveness,valence,tempo,duration_min))
+  spotify_num %>%tbl_summary
+#(include = c(track_popularity,danceability,energy,loudness,speechiness,
+#                          acousticness,instrumentalness,liveness,valence,tempo,duration_min))
 
 table1
 ```
+## Explore Data
 
+Covariance is a statistical measure revealing the relationship between variables. Positive numbers indicate a positive relationship, such as the positive number at loudness and energy, telling us that as the loudness increases in a track so does the energy. In the other direction, the higher the negative number the smaller correlation that is involved, such as the difference between loudness and acousticness. 
+
+```{r}
+cov(spotify_num)
+```
+
+In the correlation plot, we visualize the numbers shown in the correlation table. The darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
 ```{r}
 # Show correlation matrix
-corrplot(cor(spotify_new_df))
+
+corrplot(cor(spotify_num))
 ```
-
-In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
-
 Next, we will explore the distribution of data for each variable using histograms:
 
 ```{r}
 # Show histogram of variables to assess distribution and normality
-spotify_new_df %>%
+spotify_num %>%
   keep(is.numeric) %>% 
   gather() %>% 
   ggplot(aes(value), fill='skyblue') +
     facet_wrap(~ key, scales = "free") +
     geom_histogram()
 
-#hist(spotify_new_df$energy, main="Histogram of energy", col="skyblue")
-#hist(spotify_new_df$track_popularity, main="Histogram of track popularity", col="skyblue")
-#hist(spotify_new_df$danceability, main="Histogram of danceability", col="skyblue")
-#hist(spotify_new_df$key, main="Histogram of key", col="skyblue")
-#hist(spotify_new_df$loudness, main="Histogram of loudness", col="skyblue")
-#hist(spotify_new_df$mode, main="Histogram of mode", col="skyblue")
-#hist(spotify_new_df$speechiness, main="Histogram of speechiness", col="skyblue")
-#hist(spotify_new_df$acousticness, main="Histogram of acousticness", col="skyblue")
-#hist(spotify_new_df$instrumentalness, main="Histogram of instrumentalness", col="skyblue")
-#hist(spotify_new_df$liveness, main="Histogram of liveness", col="skyblue")
-#hist(spotify_new_df$valence, main="Histogram of valence", col="skyblue")
-#hist(spotify_new_df$tempo, main="Histogram of tempo", col="skyblue")
-#hist(spotify_new_df$duration_min, main="Histogram of duration in minutes", col="skyblue")
-
 ```
+```{r}
+spotify_df <- spotify_df %>%
+  mutate(popular = if_else(track_popularity >= 57, "1", "0"))
+
+popular <- spotify_df %>% filter(popular == "1")
+
+popular_genre <- popular %>% 
+  count(playlist_genre) %>% 
+  rename("total" = "n") %>% 
+  arrange(desc(total))
+
+popular_genre %>% 
+  ggplot(aes(y = reorder(playlist_genre, total), x = total)) +
+  geom_bar(aes(fill = total), stat = "identity") +
+  scale_fill_gradient(low = "#007a33", high = "#004c97") +
+  labs(title = "Most Popular Genre",
+       y = "genre",
+       x = "total of popular songs") +
+  theme_minimal()
+```
+
+```{r}
+popular_subgenre <- popular %>% 
+  count(playlist_subgenre) %>% 
+  rename("total" = "n") %>% 
+  arrange(desc(total))
+
+popular_subgenre %>% 
+  ggplot(aes(y = reorder(playlist_subgenre, total), x = total)) +
+  geom_bar(aes(fill = total), stat = "identity") +
+  scale_fill_gradient(low = "#007a33", high = "#004c97") +
+  labs(title = "Most Popular SubGenre",
+       y = "genre",
+       x = "total of popular songs") +
+  theme_minimal()
+```
+
 
 ### Statistical Modeling
+
+Scale data as it cannot allocate vector at current dataset size
+
 ```{r}
 #scale data as it cannot allocate vector at current dataset size
-  # scaling
-scale_spotify <- spotify_new_df %>%
-  select(where(is.numeric),
-         -track_popularity) %>% 
-  scale()
 
-RNGkind(sample.kind = "Rounding")
-set.seed(205)
+spotify_new_df <- spotify_df %>% mutate(popular = as.factor(popular))
 
-reduction <- sample(x = nrow(spotify_new_df), size = nrow(spotify_new_df)*0.015)
-spotify_keep <- spotify_new_df[reduction,]
-
-reduction2 <- sample(x = nrow(spotify_new_df), size = nrow(spotify_new_df)*0.2)
-spotify_red2 <- spotify_new_df[reduction2,]
-
-
-scaled <- spotify_red2 %>%
-  select(where(is.numeric),
-         -track_popularity) %>% 
-  scale()
-
-  #create the elbow curve
-
-
-fviz_nbclust(x = scaled,
-             FUNcluster = kmeans,
-             method = "wss")
+scale_spotify<- scale(spotify_num)
 
 ```
+
+```{r}
+
+RNGkind(sample.kind = "Rounding")
+set.seed(123)
+
+spotify_km <- kmeans(x = scale_spotify,
+                    centers = 3)
+```
+
+Define the range of clusters you want to consider
+```{r}
+# Define the range of clusters you want to consider
+num_clusters <- 2:10
+```
+
+Calculate WSS for each number of clusters
+```{r}
+# Calculate WSS for each number of clusters
+wss <- numeric(length(num_clusters))
+for (i in seq_along(num_clusters)) {
+  k <- num_clusters[i]
+  kmeans_model <- kmeans(scale_spotify, centers = k, nstart = 10)
+  wss[i] <- kmeans_model$tot.withinss
+}
+```
+
+ Plot the WSS values against the number of clusters
+```{r}
+plot<-plot(num_clusters, wss, type = "b", pch = 19, frame = FALSE,
+     xlab = "Number of Clusters", ylab = "Within-Cluster Sum of Squares")
+
+# Add a vertical line at the "elbow point"
+#elbow_point <- which(diff(wss) <= 0.01 * max(diff(wss)))
+#abline(v = num_clusters[elbow_point], col="steelblue")
+```
+Number of Observations in each Cluster
+```{r}
+#Number of Observations
+spotify_km$size
+```
+
+Centroid Center Positions
+```{r}
+#Centroid Center Positions
+spotify_km$centers
+
+#Use for Cluster Labels
+head(spotify_km$cluster)
+```
+
+Goodness of Fit
+```{r}
+#Goodness of Fit
+spotify_km$tot.withinss
+```
+
+BSS/TSS Ratio
+```{r}
+#BSS/TSS Ratio
+spotify_km$betweenss/spotify_km$totss
+```
+
+```{r}
+#add cluster column to dataset
+spotify_num$cluster <- spotify_km$cluster
+#head(spotify_num)
+```
+
+Averages for each cluster
+```{r}
+#average for each cluster
+spotify_centroid <- spotify_num %>% 
+  group_by(cluster) %>% 
+  summarise_all(mean)
+spotify_centroid
+```
+
+Which Cluster has the high and low for each variable
+
+```{r}
+#Which Cluster has the high and low for each variable
+spotify_centroid %>% 
+  pivot_longer(-cluster) %>% 
+  group_by(name) %>% 
+  summarize(
+    group_min = which.min(value),
+    group_max = which.max(value))
+```
+
+```{r}
+#visualizes the highs and lows from the previous table
+
+#profile <-ggRadar(
+ # data=spotify_num,
+  #mapping = aes(colours = cluster),
+  #interactive = T
+#)
+
+#profile
+
+```
+
+
+```{r}
+#Change label names based on the attributes found in our clusters
+#cluster_labels <- c(" ", "", "")
+fviz_cluster(object = spotify_km,
+             data = spotify_num, labelsize = 1)
+#, labels = cluster_labels)
+```
+
+```{r}
+#add back in song info for grouping
+
+spotify_final <- spotify_new_df %>%
+  select_if(~!is.numeric(.)) %>%
+  cbind(spotify_num)
+head(spotify_final)
+```
+
+
+```{r}
+
+## likely remove
+#reduction <- sample(x = nrow(spotify_clean), size = nrow(spotify_clean)*0.015)
+#spotify_red <- spotify_clean[reduction,]
+
+#reduction2 <- sample(x = nrow(spotify_red), size = nrow(spotify_red)*0.2)
+#spotify_red2 <- spotify_red[reduction2,]
+
+#spotify_red3 <- spotify_red2 %>% 
+ # select(negate(is.numeric))
+
+#spotify_red4 <- spotify_red2 %>% 
+ # select(where(is.numeric), - track_popularity) %>% 
+  #scale()
+
+
+# Calculate WSS for each number of clusters
+#fviz_nbclust(x = spotify_red4,
+ #            FUNcluster = kmeans,
+  #           method = "wss")
+
+
+```
+
 
 ### Conclusion
 
