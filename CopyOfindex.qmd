@@ -1,5 +1,5 @@
 ---
-title: "Demonstration of a K-Means Clustering Algorithm on Spotify music features"
+title: "K-Means Clustering"
 author: "Stacy Chandisingh, Leo Pena, Shaif Hossain"
 date: '`r Sys.Date()`'
 format:
@@ -91,36 +91,34 @@ Where: <br>
 Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means/data?select=spotify.csv)
 
 ::: panel-tabset
-
 ## Correlation Matrix
 
 ![corrplot](resources/corrplot.png){width=750}
 
 In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
-:::
-
-::: panel-tabset
 ## Histogram
 
 - Histogram of variables to assess distribution and normality
 
 ![histogram](resources/histogram.png){width=750}
+
 :::
 
+## Visualizing the data clusters
+
+::: panel-tabset
 ## The Elbow Curve
 
 - The point at which the line starts to curve is where we get our "k" clusters. Hence the name "Elbow Curve"
 
 ![elbow](resources/elbow.png){width=750}
 
-:::
-
-## Visualizing the data clusters
-
+## Cluster plot
 - Three distinct clusters are shown here.
 
 ![clusters](resources/clusters.png){width=750}
+
 :::
 
 ## What did we find?
