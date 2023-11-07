@@ -46,7 +46,17 @@ execute:
 
 . . .
 
-## Methods: diving into the K-Means algorithm (add wcss and euclidean distance as two separate tabs under methods)
+## Methods: diving into the K-Means algorithm
+
+::: panel-tabset
+## Assumptions
+ 
+- K-means assumes the clusters are symmetric, there can be asymmetrical clusters. <br>
+- The data is assumed to be independent. <br>
+- Properly scaled data is important for K-Means, it can lead to uneven clusters. <br>
+- There is a fixed number of clusters for K-Means. <br>
+
+## WCSS
 
 - Descriptive statistics/histograms/correlation matrix to visualize the spread of the data.
 
@@ -66,7 +76,9 @@ $$WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2$$
 - X~ij~ is the *j*^th^ data point in cluster I. <br>
 
 The WCSS can be used to measure how the data within a cluster are grouped. The variables that are used from the dataset are then scaled. Then, after they are scaled the next steps are:
- 
+
+## Euclidean distance
+
 Euclidean distance is calculated between each attribute, and the cluster center:
 $$ D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} $$
 
@@ -77,14 +89,8 @@ Where: <br>
 - n is number of attributes. <br>
 - x~i~ is the *i*^th^ attribute of the data point. <br>
 - K~ij~ is the *j*^th^ attribute of the centroid of cluster i. <br>
- 
 
-## Assumptions
- 
-- K-means assumes the clusters are symmetric, there can be asymmetrical clusters. <br>
-- The data is assumed to be independent. <br>
-- Properly scaled data is important for K-Means, it can lead to uneven clusters. <br>
-- There is a fixed number of clusters for K-Means. <br>
+::: 
  
 
 ## Analysis and Results: Data and Vizualisation
