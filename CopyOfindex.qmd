@@ -68,6 +68,7 @@ execute:
 
 - The distance data is visualized using the fviz_dist() function in R from the factoextra package. 
 
+
 $$WCSS = \sum_{i=1}^{K}\sum_{j=1}^{ni}\left \| x_{ij} - c_{i} \right \|^2$$
 
 - K is number of clusters. <br>
