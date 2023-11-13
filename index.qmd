@@ -181,7 +181,8 @@ table1
 Covariance is a statistical measure revealing the relationship between variables. Positive numbers indicate a positive relationship, such as the positive number at loudness and energy, telling us that as the loudness increases in a track so does the energy. In the other direction, the higher the negative number the smaller correlation that is involved, such as the difference between loudness and acousticness. 
 
 ```{r}
-cov(spotify_num)
+x <- cov(spotify_num)
+#print(x)
 ```
 
 In the correlation plot, we visualize the numbers shown in the correlation table. The darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
