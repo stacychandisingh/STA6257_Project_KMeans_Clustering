@@ -79,7 +79,9 @@ We will employ the use of the elbow method which uses a visual approach in deter
 ### Data and Vizualisation
 Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means/data?select=spotify.csv)
 
-Data inspection and visualization was conducted to determine the structure of our Spotify dataset.
+In this section, we aim to uncover the number of clusters that can be associated with distinct musical genres based on grouping similar Spotify variables. We aim to establish an efficient method of categorizing the Spotify musical selections available in our dataset.
+
+Data inspection and visualization was conducted as part of this analysis to determine the structure of our Spotify dataset.
 
 ```{r, warning=FALSE, echo=T, message=FALSE}
 # loading packages 
@@ -142,13 +144,13 @@ spotify_df <- spotify_df %>% select(-track_id, -playlist_id, -track_album_id) %>
   mutate_at(c("playlist_genre", "playlist_subgenre", "mode", "key"), as.factor)
 
 # Check for missing data. 5 missing values found for three variables. 
-colSums(is.na(spotify_df))
+# colSums(is.na(spotify_df))
 
 # Omit missing values
 spotify_df <- na.omit(spotify_df)
 
 # Verify missing data has been removed
- colSums(is.na(spotify_df))
+# colSums(is.na(spotify_df))
 ```
 
 
@@ -163,7 +165,7 @@ head(spotify_df)
 
 # Filter only numeric variables for table summary
 spotify_num<- spotify_df %>% select(where(is.numeric))
-head(spotify_num)
+# head(spotify_num)
 
 
 # summarize the numeric data with our package
@@ -369,7 +371,7 @@ fviz_cluster(object = spotify_km,
 spotify_final <- spotify_new_df %>%
   select_if(~!is.numeric(.)) %>%
   cbind(spotify_num)
-head(spotify_final)
+#head(spotify_final)
 ```
 
 
