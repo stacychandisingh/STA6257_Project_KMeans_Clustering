@@ -171,7 +171,7 @@ spotify_df <- na.omit(spotify_df)
 
 # Convert duration to minutes (from milliseconds)
 spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
-head(spotify_df)
+#head(spotify_df)
 ```
 
 The summary function returns descriptive statistics from our numerical variables. ( We can choose specific ones)
@@ -307,37 +307,26 @@ set.seed(123)
 
 spotify_km <- kmeans(x = scale, centers = 3)
 
-#Change label names based on the attributes found in our clusters
-#cluster_labels <- c(" ", "", "")
 fviz_cluster(object = spotify_km,
              data = scale, labelsize = 1)
-#, labels = cluster_labels)
 ```
 ```
 
 Model Analysis:
 
-In cluster 1 there are 1,286 records. 
-In cluster 2 there are 2,177 records. 
-In cluster 3 there are 3,102 records.
+In cluster 1 there are 2,292 records. 
+In cluster 2 there are 1,263 records. 
+In cluster 3 there are 3,010 records.
 ```{r}
 #Number of Observations
 spotify_km$size
 ```
 
-Centroid Center Positions
+Centroid Center Positions.
+
 ```{r}
 #Centroid Center Positions
 spotify_km$centers
-
-#Use for Cluster Labels
-head(spotify_km$cluster)
-```
-
-Goodness of Fit
-```{r}
-#Goodness of Fit
-spotify_km$tot.withinss
 ```
 
 BSS/TSS Ratio
@@ -353,10 +342,10 @@ We add cluster column to the dataset.
 ```{r}
 #add cluster column to dataset
 reduced_num$cluster <- spotify_km$cluster
-#head(spotify_num)
 ```
 
-Averages for each cluster
+Below are the summary averages for all of our attributes in each cluster. 
+
 ```{r}
 #average for each cluster
 spotify_centroid <- reduced_num %>% 
@@ -365,7 +354,7 @@ spotify_centroid <- reduced_num %>%
 spotify_centroid
 ```
 
-Which Cluster has the high and low for each variable
+This table shows which cluster has the miminum and maximum of each attribute. This table briefly summarizes the types of songs we have in each cluster. 
 
 ```{r}
 #Which Cluster has the high and low for each variable
@@ -379,21 +368,19 @@ spotify_centroid %>%
 
 
 We add the non-numerical information back to the dataset as we continue our analysis with the updated clusters.  
-```{r}
 
+```{r}
 spotify_final <- reduced_kmeans %>%
    select_if(negate(is.numeric)) %>%
    cbind(reduced_num)
-head(spotify_final)
+#head(spotify_final)
 ```
 
-We would like to see the number of popular songs in each cluster. Just like our previous analysis we take our spotify review set and see the number of popular tracks in each cluster based on our popularity score of >57. In cluster 1 there were 414 popular tracks, cluster 2 454 popular tracks, and cluster 3 1329 popular tracks. The graph compares the groups as we use this new only_pop data to see what type of popular tracks are in each cluster.  
+We would like to see the number of popular songs in each cluster. Just like our previous analysis we take our spotify review set and see the number of popular tracks in each cluster based on our popularity score of >57. In cluster 1 there were 492 popular tracks, cluster 2 405 popular tracks, and cluster 3 1,241 popular tracks. The graph compares the groups as we use this new only_pop data to see what type of popular tracks are in each cluster.  
 
 ```{r}
 spotify_final_pop <- spotify_final %>%
   mutate(popular = if_else(track_popularity >= 57, "1", "0"))
-
-head(spotify_final_pop)
 
 only_pop <- spotify_final_pop %>% filter(popular == "1")
 
@@ -415,16 +402,24 @@ clusters %>%
   coord_flip()
 ```
 
+We want to compare the audio attributes of our clusters to determine the types of clusters created. We create a new review tibble from the new only_pop data to compare those popular songs in each cluster and show those attributes that have normal distributes. In the charts below you will see the average attributes for songs in those clusters, a plot of where each track compares to the average of our total population, and a graph comparing the genres of each cluster. In summary, our first cluster is an enery cluster, our second cluster is a cheerful cluster, and our third is an acoustic cluster. 
 
-Cluster 1
 
 ```{r}
-spotify_review <- only_pop %>%select(track_name, track_popularity, acousticness, danceability, energy, liveness, speechiness, valence,cluster) %>%
+spotify_review <- only_pop %>%select(track_name, track_artist, playlist_genre, track_popularity, acousticness, danceability, energy, liveness, speechiness, valence,cluster) %>%
   pivot_longer(cols = acousticness:valence,
                names_to = "attribute",
                values_to = "rating")
+               
+```
 
+Cluster 1
+
+In our k means clustering model cluster 1 has the highest duration_min, energy, instrumentalness, liveness, loudness, and tempo. These are fast and upbeat songs that include Blinding Lights, Crazy Train, and Sweet Child of Mine. The majority of genres are pop, rock, and EDM, which make up our most popular groups. These sounds are low on acousticness, dancebilitity, speechiness, and valence. This cluster also has the lowest number of popular tracks. 
+
+```{r}
 cluster1 <- spotify_review[spotify_review$cluster == '1',]
+#head(cluster1)
 
 ggplot(cluster1, aes(x = rating, colour = attribute)) +
   geom_density(show.legend = FALSE) +
@@ -436,12 +431,24 @@ ggplot(cluster1, aes(x = rating, y = track_popularity, color = attribute)) +
   facet_wrap(~attribute, scales = "free_x", nrow = 2) +
   labs(x = "Attribute Value",
        y = "Track Popularity")
+
+ggplot(data=cluster1, 
+             mapping = aes(x = (playlist_genre), 
+                           y = track_popularity, 
+                           fill = playlist_genre)) + 
+      geom_col(width = 0.7,alpha=0.7) + 
+      scale_fill_brewer(palette = "Set2") + 
+      ggtitle("Cluster 1 - Genres & Popularity") + 
+      xlab("Genre") + ylab("Popularity")
 ```
 
  Cluster 2
  
+ In our k means clustering model cluster 2 has the highest danceability, speechiness, valence, and the highest number of popular songs for our clusters. These are cheerful and vocal songs that include Memories, Falling, and everything I wanted as its top songs. The majority of genres are pop, latin, and rock. These sounds are low on duration_min, dancebilitity and instrumentalness.
+ 
 ```{r}
 cluster2 <- spotify_review[spotify_review$cluster == '2',]
+#head(cluster2)
 
 ggplot(cluster2, aes(x = rating, colour = attribute)) +
   geom_density(show.legend = FALSE) +
@@ -453,12 +460,25 @@ ggplot(cluster2, aes(x = rating, y = track_popularity, color = attribute)) +
   facet_wrap(~attribute, scales = "free_x", nrow = 2) +
   labs(x = "Attribute Value",
        y = "Track Popularity")
+       
+ggplot(data=cluster2, 
+             mapping = aes(x = (playlist_genre), 
+                           y = track_popularity, 
+                           fill = playlist_genre)) + 
+      geom_col(width = 0.7,alpha=0.7) + 
+      scale_fill_brewer(palette = "Set2") + 
+      ggtitle("Cluster 2 - Genres & Popularity") + 
+      xlab("Genre") + ylab("Popularity")
+
 ```
 
 Cluster 3
 
+In our k means clustering model cluster 3 has the highest acousticness. These are soft rock or acoustic songs that include Roxanne, The Box, and Circles. These sounds are low on energy, liveness, loudness, and tempo. This cluster is very close to having the lowest number of popular track, and the top genres are latin, rap, and pop. 
+
 ```{r}
 cluster3 <- spotify_review[spotify_review$cluster == '3',]
+#head(cluster3)
 
 ggplot(cluster3, aes(x = rating, colour = attribute)) +
   geom_density(show.legend = FALSE) +
@@ -470,6 +490,15 @@ ggplot(cluster3, aes(x = rating, y = track_popularity, color = attribute)) +
   facet_wrap(~attribute, scales = "free_x", nrow = 2) +
   labs(x = "Attribute Value",
        y = "Track Popularity")
+       
+ggplot(data=cluster3, 
+             mapping = aes(x = (playlist_genre), 
+                           y = track_popularity, 
+                           fill = playlist_genre)) + 
+      geom_col(width = 0.7,alpha=0.7) + 
+      scale_fill_brewer(palette = "Set2") + 
+      ggtitle("Cluster 3 - Genres & Popularity") + 
+      xlab("Genre") + ylab("Popularity")
       
 ```
 
