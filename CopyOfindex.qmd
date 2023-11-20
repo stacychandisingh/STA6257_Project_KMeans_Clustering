@@ -101,10 +101,23 @@ Where: <br>
 Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means/data?select=spotify.csv)
 
 ::: panel-tabset
+## Data Description
+
+For our segmentation we will be using a spotify dataset that contains the audio features of each of track. There are 32,828 observations across 22 variables. There are 12 numerical variables and 10 character variables.
+
+*look into adding a data table. check example sent in discord*
+
 ## Data Preprocessing
+
 
 *include snippets of data cleaning code. use stuff from discord*
 
+
+::: 
+
+## Results
+
+::: panel-tabset
 
 ## Covariance
 
@@ -112,11 +125,11 @@ Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook
 - Positive numbers indicate a positive relationship, such as the positive number at loudness and energy, telling us that as the loudness increases in a track so does the energy. 
 - In the other direction, the higher the negative number the smaller correlation that is involved, such as the difference between loudness and acousticness.
 
-![covariance](resources/correlationnumbers.png){width=750}
+![](resources/correlationnumbers.png){fig-alt="Covariance values" width=750}
 
 ## Correlation Matrix
 
-![corrplot](resources/corrplot.png){width=750}
+![](resources/corrplot.png){width=750}
 
 In the correlation plot, the darker the blue the greater the correlation between the variables. The chart shows a positive correlation between energy and loudness and a negative correlation between acousticness and energy.
 
@@ -124,7 +137,13 @@ In the correlation plot, the darker the blue the greater the correlation between
 
 - Histogram of variables to assess distribution and normality
 
-![histogram](resources/histogram.png){width=750}
+![](resources/histogram.png){width=750}
+
+## Popular Genres
+
+![](resources/populargenre.png){width=750}
+
+We want to gain an understanding of which genre is the most popular among our datset. To start we split the tracks between popular (1) and unpopular (0) based on a popularity score of over 57 (based on a score of 0-99). We filter out all of the unpopular songs and build our graph by playlist genre. We see that pop, latin, and rap have the highest count of popular songs in our review.
 
 :::
 
@@ -138,12 +157,12 @@ In the correlation plot, the darker the blue the greater the correlation between
 - In our plot, we see that 3 is the ideal number of clusters, meaning there are 3 centroids to determine where the data points will fit the closest too. 
 
 
-![elbow](resources/elbow.png){width=750}
+![](resources/elbow.png){width=750}
 
 ## Cluster plot
 - Three distinct clusters are shown here.
 
-![clusters](resources/clusters.png){width=750}
+![](resources/clusters.png){width=750}
 
 :::
 
@@ -164,7 +183,7 @@ In the correlation plot, the darker the blue the greater the correlation between
 Centroid Center Positions:
 
 
-![centroid](resources/centroids.png){width=750}
+![](resources/centroids.png){width=750}
 
 ## BSS/TSS Ratio
 
@@ -180,7 +199,7 @@ Centroid Center Positions:
 
 ## Min/Max 
 
-![min_max](resources/minmax.png){width=750}   
+![](resources/minmax.png){width=750}   
 
 
 
@@ -195,7 +214,7 @@ Centroid Center Positions:
 
 ## Review
 
-![popularity](resources/popularitygraph.png){width=750} 
+![](resources/popularitygraph.png){width=750} 
 
 We would like to see the number of popular songs in each cluster. Just like our previous analysis we take our spotify review set and see the number of popular tracks in each cluster based on our popularity score of >57. 
 - In cluster 1, there are 492 popular tracks. 
@@ -205,7 +224,7 @@ We would like to see the number of popular songs in each cluster. Just like our 
 The graph compares the groups as we use this new only_pop data to see what type of popular tracks are in each cluster.
 
 ## Cluster 1
-![1](resources/cluster1.png){width=550 height="315" fig-align="left"}   ![cluster1](resources/clustergraph1.png){width=560 height="315" fig-align="right"}
+![](resources/cluster1.png){width=550 height="315" fig-align="left"}   ![](resources/clustergraph1.png){width=560 height="315" fig-align="right"}
  
 
 In our k means clustering model, cluster 1 has the highest duration_min, energy, instrumentalness, liveness, loudness, and tempo. These are fast and upbeat songs that include Blinding Lights, Crazy Train, and Sweet Child of Mine. The majority of genres are pop, rock, and EDM, which make up our most popular groups. These sounds are low on acousticness, dancebilitity, speechiness, and valence. This cluster also has the lowest number of popular tracks.
@@ -214,14 +233,14 @@ In our k means clustering model, cluster 1 has the highest duration_min, energy,
 
 ## Cluster 2
 
-![2](resources/cluster2.png){width=550 height="315" fig-align="left"} ![cluster2](resources/clustergraph2.png){width=560 height="315" fig-align="right"}
+![](resources/cluster2.png){width=550 height="315" fig-align="left"} ![](resources/clustergraph2.png){width=560 height="315" fig-align="right"}
 
 In our k means clustering model cluster 2 has the highest danceability, speechiness, valence, and the highest number of popular songs for our clusters. These are cheerful and vocal songs that include Memories, Falling, and everything I wanted as its top songs. The majority of genres are pop, latin, and rock. These sounds are low on duration_min, dancebilitity and instrumentalness.
 
 
 ## Cluster 3
 
-![3](resources/cluster3.png){width=560 height="315" fig-align="left"} ![cluster3](resources/clustergraph3.png){width=560 height="315" fig-align="right"}
+![](resources/cluster3.png){width=560 height="315" fig-align="left"} ![](resources/clustergraph3.png){width=560 height="315" fig-align="right"}
 
 Cluster 3
 
