@@ -46,6 +46,9 @@ execute:
 
 . . .
 
+- We want to enhance our listener experience by recommending popular songs with similar song attributes to the favorite songs that they enjoy.
+
+
 ## Methods: diving into the K-Means algorithm
 
 ::: panel-tabset
