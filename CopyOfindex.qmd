@@ -10,6 +10,7 @@ format:
     margin: 0.01
     auto-stretch: false
     width: 1200
+    height: 1200
     max-scale: 1.5
     view-distance: 30
     mobile-view-distance: 30
@@ -276,7 +277,8 @@ The graph compares the groups as we use this new only_pop data to see what type 
 ![](resources/cluster1.png){width=550 height="315" fig-align="left"}   ![](resources/clustergraph1.png){width=560 height="315" fig-align="right"}
  
 
-In our k means clustering model, cluster 1 has the highest duration_min, energy, instrumentalness, liveness, loudness, and tempo. These are fast and upbeat songs that include Blinding Lights, Crazy Train, and Sweet Child of Mine. The majority of genres are pop, rock, and EDM, which make up our most popular groups. These sounds are low on acousticness, dancebilitity, speechiness, and valence. This cluster also has the lowest number of popular tracks.
+In our k means clustering model, cluster 1 has the highest duration_min, energy, instrumentalness, liveness, loudness, and tempo. These are fast and upbeat songs that include Blinding Lights, Crazy Train, and Sweet Child of Mine. The majority of genres are pop, rock, and EDM, which ma
+ke up our most popular groups. These sounds are low on acousticness, dancebilitity, speechiness, and valence. This cluster also has the lowest number of popular tracks.
 
 
 
