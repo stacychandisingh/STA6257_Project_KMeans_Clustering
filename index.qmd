@@ -55,7 +55,7 @@ $$ D_{euclidean}(x, Ki) = \sqrt{\sum_{i=1}^{n}((x_{i}) -(k)_{ij})^{2}} $$
 Where: <br>
 
 - x is data point. <br>
-- ki is cluster center. <br>
+- k~i~ is cluster center. <br>
 - n is number of attributes. <br>
 - x~i~ is the *i*^th^ attribute of the data point. <br>
 - K~ij~ is the *j*^th^ attribute of the centroid of cluster i. <br>
@@ -104,7 +104,7 @@ library(gtsummary)
 library(qmrparser)
 
 ```
-Dataset Description
+*Dataset Description*
 
 For our segmentation we will be using a spotify dataset that contains the audio features of each of track. There are 32,828 observations across 22 variables. There are 12 numerical variables and 10 character variables. 
 
@@ -139,7 +139,7 @@ spotify_df <- read_csv("resources/spotify.csv")
 'tempo'| The tempo of a track measured in beats per minute.<br>
 'duration_ms'| The duration of the track in milliseconds.<br>
 
-Data Pre-Processing
+*Data Pre-Processing*
 
 To start, we convert the data set to a data frame to work with multiple classes of data.
 
