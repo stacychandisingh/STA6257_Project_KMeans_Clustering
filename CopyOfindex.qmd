@@ -32,6 +32,8 @@ execute:
 
 - K-means is a fixed number (k) of clusters in a dataset
 
+![](resources/clusterexample.png){fig-alt="cluster" width=750}
+
 . . .
 
 - Used to draw conclusions about a dataset based on groups of similar variables
@@ -39,6 +41,10 @@ execute:
 . . .
 
 - Different ways to determine the 'k'
+
+
+![](resources/elbowmethod.png){fig-alt="cluster" width=750}
+Image source: <https://www.oreilly.com/library/view/statistics-for-machine/9781788295758/c71ea970-0f3c-4973-8d3a-b09a7a6553c1.xhtml>
 
 . . .
 
@@ -105,13 +111,55 @@ Data source: [Spotify data from Kaggle](https://www.kaggle.com/code/ryanholbrook
 
 For our segmentation we will be using a spotify dataset that contains the audio features of each of track. There are 32,828 observations across 22 variables. There are 12 numerical variables and 10 character variables.
 
-*look into adding a data table. check example sent in discord*
+| Variables | Description |
+|--|-------------|
+'Track_id'| Spotify ID for each track.<br>
+'track_name'| Name of the Track.<br>
+'track_artist'| Artist Name.<br>
+'track_popularity'| The popularity of each track measured 1-100.<br>
+'track_album_id'| Key specific to each album.<br>
+'track_album_name'| Name of track.<br>
+'track_alblum_release_date'| Date Album was released <br>
+'playlist_name'| Style of music track can be found in.Contains genre and subgenre.<br>
+'playlist_id'| Key to the style category.<br>
+'playlist_genre'| Main category of each playlist.<br>
+'playlist_subgenre'| Secondary category of each playlist.<br>
+'danceability'| A well a track is for dancing through a combination of tempo, rythm, beat, and regularity on a scale between 0 and 1.<br>
+'energy'| Energy is a measure between perception and energy measured between 0 and 1.<br>
+'key'| The musical key the track is in.<br>
+'loudness'| How loud the track is in decibels (dB).<br>
+'mode'| Whether the scale is major or minor.<br>
+'speechiness'| The level of spoken words in a track (similar to a podcast or talk show) measured on a level of 0 to 1.<br>
+'acousticness'| How confident we are the track is acoustic on a scale of 0 to 1.<br>
+'instrumentalness'| Determines the lack of vocals in a track.<br>
+'liveness'| Listens for an audience in the track. This is determined on a scale of 0 to 1.<br>
+'valence'| The musical positiveness conveyed in a track. Measured on a scale of 0 to 1.<br>
+'tempo'| The tempo of a track measured in beats per minute.<br>
+'duration_ms'| The duration of the track in milliseconds.<br>
+
 
 ## Data Preprocessing
 
+```default
+#convert tibble to data frame
+spotify_df <- as.data.frame(spotify_df)
 
-*include snippets of data cleaning code. use stuff from discord*
+spotify_df <- spotify_df %>% select(-track_id, -playlist_id, -track_album_id) %>% 
+  mutate_at(c("playlist_genre", "playlist_subgenre", "mode", "key"), as.factor)
 
+# Check for missing data. 5 missing values found for three variables. 
+colSums(is.na(spotify_df))
+
+# Omit missing values
+spotify_df <- na.omit(spotify_df)
+
+# Verify missing data has been removed
+colSums(is.na(spotify_df))
+
+# Convert duration to minutes (from milliseconds)
+spotify_df <- spotify_df %>% mutate(duration_ms = duration_ms/60000) %>% rename(duration_min = duration_ms)
+head(spotify_df)
+```
 
 ::: 
 
