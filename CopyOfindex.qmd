@@ -44,9 +44,10 @@ execute:
 
 
 ![](resources/elbowmethod.png){fig-alt="cluster" width=750}
+
 Image source: <https://www.oreilly.com/library/view/statistics-for-machine/9781788295758/c71ea970-0f3c-4973-8d3a-b09a7a6553c1.xhtml>
 
-. . .
+## Our focus?
 
 - Used a Spotify dataset focused on attributes (examples: tempo and popularity) surrounding a music track to group similar features by clustering them together
 
