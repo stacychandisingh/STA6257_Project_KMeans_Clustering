@@ -10,7 +10,7 @@ format:
     margin: 0.01
     auto-stretch: false
     width: 1200
-    height: 1200
+    height: 900
     max-scale: 1.5
     view-distance: 30
     mobile-view-distance: 30
