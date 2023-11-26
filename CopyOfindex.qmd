@@ -74,7 +74,7 @@ Image source: <https://www.oreilly.com/library/view/statistics-for-machine/97817
 
 - Preprocess and scale data for ease of comparability.
 
-- Libraries used: tidyverse, cluster, and factoextra. 
+- Libraries used: tidyverse, cluster, and factoextra.
 
 - The Euclidean distances are calculated to get the clustering distances measurement
 
