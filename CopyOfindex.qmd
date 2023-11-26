@@ -16,8 +16,8 @@ format:
     mobile-view-distance: 30
 editor: visual
 course: STA 6257 - Advanced Statistical Modeling
-bibliography: references.bib # file contains bibtex for references
-link-citations: true
+#bibliography: references.bib # file contains bibtex for references
+#link-citations: true
 self-contained: true
 execute: 
   warning: false
@@ -318,5 +318,3 @@ Centroid Center Positions:
 - Explore its potential for future research in various areas beyond user experience.
 
 
-
-## References
