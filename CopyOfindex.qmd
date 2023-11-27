@@ -244,7 +244,7 @@ Centroid Center Positions:
 
 - The closer to 1, the more distinct the clusters are within the dataset. 
 
-- In our model, the BSS/TSS ratio is 0.2042409, which is a pretty low ratio for this type of model. However, we determine a low number of clusters was sufficient in this model, which would also result in a low BSS/TSS ratio.
+- In our model, the BSS/TSS ratio is 0.2039852, which is a pretty low ratio for this type of model. However, we determine a low number of clusters was sufficient in this model, which would also result in a low BSS/TSS ratio.
 
 **BSS/TSS Ratio: 0.2039852** 
 
@@ -268,11 +268,11 @@ Centroid Center Positions:
 ![](resources/popularitygraph.png){fig-align="center" width=550} 
 
 
-- In cluster 1, there are 492 popular tracks. 
+- In cluster 1, there are 405 popular tracks. 
 
-- In cluster 2, there are 405 popular tracks.
+- In cluster 2, there are 1,241 popular tracks.
 
-- In cluster 3, there are 1,241 popular tracks. 
+- In cluster 3, there are 492 popular tracks. 
 
 
 ## Cluster 1
