@@ -299,8 +299,7 @@ Centroid Center Positions:
 ![](resources/cluster3.png){width=560 height="315" fig-align="left"} ![](resources/clustergraph3.png){width=560 height="315" fig-align="right"}
 
 
-- The highest attribute is acousticness
-- 
+- The highest attribute is acousticness.
 - Top songs include Roxanne, The Box, and Circles
 - Top genres are Rock, Pop, and EDM
 - The lowest attributes are energy, liveness, loudness, and tempo
