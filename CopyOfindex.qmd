@@ -282,8 +282,6 @@ Centroid Center Positions:
 -    The highest duration_min, energy, instrumentalness, liveness, loudness, and tempo
 -    Top songs include Blinding Lights, Crazy Train, and Sweet Child of Mine
 -    Top genres are R&B, rock, and Pop
--    Has the lowest number of popular tracks
-
 
 
 ## Cluster 2
@@ -302,6 +300,7 @@ Centroid Center Positions:
 
 
 - The highest attribute is acousticness
+- 
 - Top songs include Roxanne, The Box, and Circles
 - Top genres are Rock, Pop, and EDM
 - The lowest attributes are energy, liveness, loudness, and tempo
