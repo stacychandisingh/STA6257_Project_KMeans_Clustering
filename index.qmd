@@ -310,9 +310,9 @@ spotify_km <- kmeans(x = scale, centers = 3)
 fviz_cluster(object = spotify_km,
              data = scale, labelsize = 1)
 ```
-```
 
-Model Analysis:
+
+Model Analysis
 
 ```{r}
 #Number of Observations

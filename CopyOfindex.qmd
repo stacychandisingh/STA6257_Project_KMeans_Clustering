@@ -223,11 +223,11 @@ We want to gain an understanding of which genre is the most popular among our da
 
 ## Clusters
 
-- In cluster 1, there are 2,292 records. 
+- In cluster 1, there are 1,202 records. 
 
-- In cluster 2, there are 1,263 records.
+- In cluster 2, there are 3,190 records.
 
-- In cluster 3, there are 3,010 records.
+- In cluster 3, there are 2,173 records.
 
 ## Centroid
 
@@ -268,11 +268,11 @@ Centroid Center Positions:
 ![](resources/popularitygraph.png){fig-align="center" width=550} 
 
 
-- In cluster 1, there are 405 popular tracks. 
+- In cluster 1, there are 388 popular tracks. 
 
-- In cluster 2, there are 1,241 popular tracks.
+- In cluster 2, there are 1,400 popular tracks.
 
-- In cluster 3, there are 492 popular tracks. 
+- In cluster 3, there are 410 popular tracks. 
 
 
 ## Cluster 1
