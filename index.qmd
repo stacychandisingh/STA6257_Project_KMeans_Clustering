@@ -399,7 +399,7 @@ clusters %>%
   coord_flip()
 ```
 
-We want to compare the audio attributes of our clusters to determine the types of clusters created. We create a new review tibble from the new only_pop data to compare those popular songs in each cluster and show those attributes that have normal distributes. In the charts below you will see the average attributes for songs in those clusters, a plot of where each track compares to the average of our total population, and a graph comparing the genres of each cluster. In summary, our first cluster is an enery cluster, our second cluster is a cheerful cluster, and our third is an acoustic cluster. 
+We want to compare the audio attributes of our clusters to determine the types of clusters created. We create a new review tibble from the new only_pop data to compare those popular songs in each cluster and show those attributes that have normal distributes. In the charts below you will see the average attributes for songs in those clusters, a plot of where each track compares to the average of our total population, and a graph comparing the genres of each cluster.
 
 
 ```{r}
@@ -410,25 +410,71 @@ spotify_review <- only_pop %>%select(track_name, track_artist, playlist_genre, t
                
 ```
 
-Cluster 1
 
-In our k means clustering model cluster 1 has the highest duration_min, energy, instrumentalness, liveness, loudness, and tempo. These are fast and upbeat songs that include Blinding Lights, Crazy Train, and Sweet Child of Mine. The majority of genres are pop, rock, and EDM, which make up our most popular groups. These sounds are low on acousticness, dancebilitity, speechiness, and valence. This cluster also has the lowest number of popular tracks. 
+We create new datasets for each cluster to compare the audio attributes. These numbers will update everytime the model is ran, so we compare the results that are processed in a density chart, scatterplot, bar chart.
 
 ```{r}
 cluster1 <- spotify_review[spotify_review$cluster == '1',]
 #head(cluster1)
 
+cluster2 <- spotify_review[spotify_review$cluster == '2',]
+#head(cluster2)
+
+cluster3 <- spotify_review[spotify_review$cluster == '3',]
+#head(cluster3)
+
+```
+
+The density line shows the distribution of audio attributes for each record. Below, we compare the audio attributes of each cluster.
+
+```{r}
 ggplot(cluster1, aes(x = rating, colour = attribute)) +
   geom_density(show.legend = FALSE) +
-  facet_wrap(~attribute, scales = "free_y", nrow = 2)
+  facet_wrap(~attribute, scales = "free_y", nrow = 2) +
+  ggtitle("Cluster 1 - Audio Attributes")
   
+  
+ggplot(cluster2, aes(x = rating, colour = attribute)) +
+  geom_density(show.legend = FALSE) +
+  facet_wrap(~attribute, scales = "free_y", nrow = 2) +
+  ggtitle("Cluster 2 - Audio Attributes") 
+  
+  ggplot(cluster3, aes(x = rating, colour = attribute)) +
+  geom_density(show.legend = FALSE) +
+  facet_wrap(~attribute, scales = "free_y", nrow = 2) +
+  ggtitle("Cluster 3 - Audio Attributes")
+``` 
+
+The scatterplot shows the average line of the audio attribute for each cluster, and the tracks whose popularity are above or below that line. 
+
+```{r} 
 ggplot(cluster1, aes(x = rating, y = track_popularity, color = attribute)) +
   geom_point(alpha = 0.5, show.legend = FALSE) +
   geom_smooth(method = lm, formula = y~x, show.legend = FALSE) +
   facet_wrap(~attribute, scales = "free_x", nrow = 2) +
   labs(x = "Attribute Value",
-       y = "Track Popularity")
+       y = "Track Popularity") +
+  ggtitle("Cluster 1 - Scatterplot of Tracks Popularity by Attribute")
+       
+ggplot(cluster2, aes(x = rating, y = track_popularity, color = attribute)) +
+  geom_point(alpha = 0.5, show.legend = FALSE) +
+  geom_smooth(method = lm, formula = y~x, show.legend = FALSE) +
+  facet_wrap(~attribute, scales = "free_x", nrow = 2) +
+  labs(x = "Attribute Value",
+       y = "Track Popularity")+
+  ggtitle("Cluster 2 - Scatterplot of Tracks Popularity by Attribute")
+       
+ggplot(cluster3, aes(x = rating, y = track_popularity, color = attribute)) +
+  geom_point(alpha = 0.5, show.legend = FALSE) +
+  geom_smooth(method = lm, formula = y~x, show.legend = FALSE) +
+  facet_wrap(~attribute, scales = "free_x", nrow = 2) +
+  labs(x = "Attribute Value",
+       y = "Track Popularity")+
+  ggtitle("Cluster 3 - Scatterplot of Tracks Popularity by Attribute")
+``` 
 
+The barcharts compare which popular genres each cluster fall into. We see if there are any comparisons to our previous popularity review in the total dataset. 
+```{r}
 ggplot(data=cluster1, 
              mapping = aes(x = (playlist_genre), 
                            y = track_popularity, 
@@ -437,27 +483,8 @@ ggplot(data=cluster1,
       scale_fill_brewer(palette = "Set2") + 
       ggtitle("Cluster 1 - Genres & Popularity") + 
       xlab("Genre") + ylab("Popularity")
-```
-
- Cluster 2
- 
- In our k means clustering model cluster 2 has the highest acousticness. These are soft rock or acoustic songs that include Roxanne, The Box, and Circles. The majority of genres are pop, latin, and rock. These sounds are low on duration_min, dancebilitity and instrumentalness.
- 
-```{r}
-cluster2 <- spotify_review[spotify_review$cluster == '2',]
-#head(cluster2)
-
-ggplot(cluster2, aes(x = rating, colour = attribute)) +
-  geom_density(show.legend = FALSE) +
-  facet_wrap(~attribute, scales = "free_y", nrow = 2)
-  
-ggplot(cluster2, aes(x = rating, y = track_popularity, color = attribute)) +
-  geom_point(alpha = 0.5, show.legend = FALSE) +
-  geom_smooth(method = lm, formula = y~x, show.legend = FALSE) +
-  facet_wrap(~attribute, scales = "free_x", nrow = 2) +
-  labs(x = "Attribute Value",
-       y = "Track Popularity")
-       
+      
+      
 ggplot(data=cluster2, 
              mapping = aes(x = (playlist_genre), 
                            y = track_popularity, 
@@ -466,28 +493,7 @@ ggplot(data=cluster2,
       scale_fill_brewer(palette = "Set2") + 
       ggtitle("Cluster 2 - Genres & Popularity") + 
       xlab("Genre") + ylab("Popularity")
-
-```
-
-Cluster 3
-
-In our k means clustering model cluster 3 has the highest danceability, speechiness, track_popularity, and valence. These sounds are low on energy, liveness, loudness, and tempo. These are cheerful and vocal songs that include Memories, Falling, and everything I wanted as its top songs. This cluster has the highest number of popular tracks, and the top genres are latin, rap, and pop. 
-
-```{r}
-cluster3 <- spotify_review[spotify_review$cluster == '3',]
-#head(cluster3)
-
-ggplot(cluster3, aes(x = rating, colour = attribute)) +
-  geom_density(show.legend = FALSE) +
-  facet_wrap(~attribute, scales = "free_y", nrow = 2)
-  
-ggplot(cluster3, aes(x = rating, y = track_popularity, color = attribute)) +
-  geom_point(alpha = 0.5, show.legend = FALSE) +
-  geom_smooth(method = lm, formula = y~x, show.legend = FALSE) +
-  facet_wrap(~attribute, scales = "free_x", nrow = 2) +
-  labs(x = "Attribute Value",
-       y = "Track Popularity")
-       
+      
 ggplot(data=cluster3, 
              mapping = aes(x = (playlist_genre), 
                            y = track_popularity, 
@@ -496,10 +502,7 @@ ggplot(data=cluster3,
       scale_fill_brewer(palette = "Set2") + 
       ggtitle("Cluster 3 - Genres & Popularity") + 
       xlab("Genre") + ylab("Popularity")
-      
 ```
-
-
 
 
 ### Conclusion
