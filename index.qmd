@@ -441,7 +441,7 @@ ggplot(data=cluster1,
 
  Cluster 2
  
- In our k means clustering model cluster 2 has the highest acousticness. These are cheerful and vocal songs that include Memories, Falling, and everything I wanted as its top songs. The majority of genres are pop, latin, and rock. These sounds are low on duration_min, dancebilitity and instrumentalness.
+ In our k means clustering model cluster 2 has the highest acousticness. These are soft rock or acoustic songs that include Roxanne, The Box, and Circles. The majority of genres are pop, latin, and rock. These sounds are low on duration_min, dancebilitity and instrumentalness.
  
 ```{r}
 cluster2 <- spotify_review[spotify_review$cluster == '2',]
@@ -471,7 +471,7 @@ ggplot(data=cluster2,
 
 Cluster 3
 
-In our k means clustering model cluster 3 has the highest danceability, speechiness, track_popularity, and valence. These are soft rock or acoustic songs that include Roxanne, The Box, and Circles. These sounds are low on energy, liveness, loudness, and tempo. This cluster is very close to having the lowest number of popular track, and the top genres are latin, rap, and pop. 
+In our k means clustering model cluster 3 has the highest danceability, speechiness, track_popularity, and valence. These sounds are low on energy, liveness, loudness, and tempo. These are cheerful and vocal songs that include Memories, Falling, and everything I wanted as its top songs. This cluster has the highest number of popular tracks, and the top genres are latin, rap, and pop. 
 
 ```{r}
 cluster3 <- spotify_review[spotify_review$cluster == '3',]
